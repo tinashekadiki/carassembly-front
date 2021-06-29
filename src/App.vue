@@ -1,28 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <CarNav v-if="currentRoute !== 'Login'"></CarNav>
+    <div class="home">
+      <section class="main_content dashboard_part large_header_bg">
+        <Header />
+          <router-view/>
+      </section>
+    </div>
+    <Footer />
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<style>
 
+</style>
+<script>
+
+import CarNav from "./components/CarNav";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  components: {Footer, Header, CarNav},
+  computed: {
+    currentRoute(){
+      return this.$route.name;
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
