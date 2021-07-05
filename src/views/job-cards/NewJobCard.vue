@@ -38,7 +38,8 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Vehicle Reg. Number</label>
-                <input class="form-control" type="text" placeholder="Input registration number" v-model="jobCard.vehicle.regNumber">
+                <input class="form-control" type="text" placeholder="Input registration number"
+                       v-model="jobCard.vehicle.regNumber">
               </div>
             </div>
           </div>
@@ -47,7 +48,8 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label>Model</label>
-                <input class="form-control" type="text" placeholder="Input Model" v-model="jobCard.vehicle.carType.model">
+                <input class="form-control" type="text" placeholder="Input Model"
+                       v-model="jobCard.vehicle.carType.model">
               </div>
             </div>
             <div class="col-md-3">
@@ -55,39 +57,45 @@
                 <label>Make</label>
                 <input class="form-control" type="text" placeholder="Input Make" v-model="jobCard.vehicle.carType.make">
               </div>
-            </div> <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
               <div class="form-group">
                 <label>Year</label>
                 <input class="form-control" type="text" placeholder="Input Year" v-model="jobCard.vehicle.carType.year">
               </div>
-            </div> <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
               <div class="form-group">
                 <label>Type</label>
                 <input class="form-control" type="text" placeholder="Input Type" v-model="jobCard.vehicle.carType.type">
               </div>
             </div>
-            </div>
           </div>
+        </div>
         <div class="card-header"><strong>Vehicle</strong> <small>Attributes</small></div>
         <div class="card-body">
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">
                 <label>Color</label>
-                <input class="form-control" type="color" placeholder="Input Color" v-model="jobCard.vehicle.attribute.hexColor">
+                <input class="form-control" type="color" placeholder="Input Color"
+                       v-model="jobCard.vehicle.attribute.hexColor">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label>Fuel Type</label>
-                <input class="form-control" type="text" placeholder="Input Fuel Type" v-model="jobCard.vehicle.attribute.fuelType">
+                <input class="form-control" type="text" placeholder="Input Fuel Type"
+                       v-model="jobCard.vehicle.attribute.fuelType">
               </div>
-            </div> <div class="col-md-3">
-            <div class="form-group">
-              <label>Service Type</label>
-              <input class="form-control" type="text" placeholder="Input Service Type" v-model="jobCard.vehicle.attribute.serviceType.serviceTypeName">
             </div>
-          </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Service Type</label>
+                <input class="form-control" type="text" placeholder="Input Service Type"
+                       v-model="jobCard.vehicle.attribute.serviceType.serviceTypeName">
+              </div>
+            </div>
           </div>
         </div>
 
@@ -97,95 +105,104 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label>Name</label>
-                <input class="form-control" type="text" placeholder="Input Name" v-model="jobCard.vehicle.attribute.advisor.name">
+                <input class="form-control" type="text" placeholder="Input Name"
+                       v-model="jobCard.vehicle.attribute.advisor.name">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label>Surname</label>
-                <input class="form-control" type="text" placeholder="Input Surname" v-model="jobCard.vehicle.attribute.advisor.surname">
+                <input class="form-control" type="text" placeholder="Input Surname"
+                       v-model="jobCard.vehicle.attribute.advisor.surname">
               </div>
-            </div> <div class="col-md-3">
-            <div class="form-group">
-              <label>Post/ Role</label>
-              <input class="form-control" type="text" placeholder="Input Post/ Role" v-model="jobCard.vehicle.attribute.advisor.advisorPost.postName">
             </div>
-          </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Post/ Role</label>
+                <input class="form-control" type="text" placeholder="Input Post/ Role"
+                       v-model="jobCard.vehicle.attribute.advisor.advisorPost.postName">
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="card-body">
-          <div class="row">
+          <div class="row" v-if="!globalLoadingState">
             <button class="btn btn-primary" @click="saveJobCard()">Save Job Card</button>
           </div>
-        </div>
+          <Circle10 v-else></Circle10>
         </div>
       </div>
     </div>
+  </div>
 
 </template>
 
 <script>
-import { http } from "../../utils/http-base";
+import {http} from "../../utils/http-base";
+import global from "../../utils/global";
+
+import Circle10 from "vue-loading-spinner/src/components/Circle10";
 
 export default {
   name: "NewJobCard",
+  mixins: [global],
+  components: {
+    Circle10
+  },
   data() {
     return {
       jobCard: {
-      jobCardNumber: "",
+        jobCardNumber: "",
         arrivalDate: "",
         deliveryDate: "",
         estimatedDeliveryDate: "",
         insurance: "",
         vehicle: {
-      regNumber: "",
+          regNumber: "",
           carType: {
-        model: "",
+            model: "",
             make: "",
             year: 1,
             type: "",
             variant: ""
-      },
-      attribute: {
-        hexColor: "",
+          },
+          attribute: {
+            hexColor: "",
             fuelType: "",
             serviceType: {
-          serviceTypeName: ""
-        },
-        advisor: {
-          name: "",
-          surname: "",
-          advisorPost: {
-            postName: ""
+              serviceTypeName: ""
+            },
+            advisor: {
+              name: "",
+              surname: "",
+              advisorPost: {
+                postName: ""
+              }
+            }
           }
-        }
+        },
+        invoice: {},
+        status: {
+          statusName: ""
+        },
+        orderParts: []
       }
-    },
-      invoice: {
-
-    },
-      status: {
-      statusName: ""
-    },
-      orderParts: [
-
-    ]
     }
-      }
-    },
+  },
   methods: {
-    saveJobCard(){
-      console.log(this.jobCard)
-      http.post('/jobcards/create', this.jobCard).then(resp => {
+    saveJobCard() {
+      this.globalLoadingState = true;
+      http.post('/job-cards/create', this.jobCard).then(resp => {
         console.log(resp)
       }).catch(err => {
-        console.log(err)
+            console.log(err)
           }
       ).finally(() => {
-        console.log('Done')
+        this.globalLoadingState = false;
       })
-    }
+    },
+
   }
 }
 </script>

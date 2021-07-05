@@ -1,7 +1,8 @@
 import axios from 'axios';
+import config from "./global";
 
 export const http = axios.create({
-    baseURL: `http://localhost:8000/api/`,
+    baseURL: config.data().globalBaseUrl,
     headers: {
         Authorization: 'Bearer {token}'
     }

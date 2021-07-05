@@ -1,6 +1,6 @@
 <template>
   <div class="c-wrapper c-wrapper-fluid">
-    <AppTitle title="Job Cards"></AppTitle>
+    <AppTitle title="Payments"></AppTitle>
     <div class="c-body">
       <main class="c-main">
         <div class="container-fluid">
@@ -12,8 +12,10 @@
 </template>
 
 <script>
+import AppTitle from "../components/AppTitle";
 export default {
-  name: "PaymentsLayout"
+  name: "PaymentsLayout",
+  components: {AppTitle}
 }
 </script>
 

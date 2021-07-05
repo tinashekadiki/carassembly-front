@@ -1,5 +1,6 @@
 <template>
   <div class="card">
+    {{jobCardList}}
     <div class="card-header">Job Cards</div>
     <div class="card-body">
       <table class="table table-responsive-sm table-striped table-bordered">
@@ -41,6 +42,7 @@
 
 <script>
 export default {
+  props: ["jobCardList"],
   name: "JobCardTable"
 }
 </script>
