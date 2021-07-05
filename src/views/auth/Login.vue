@@ -1,40 +1,54 @@
 <template>
-  <div>
-    <div class="main_content_iner ">
-      <div class="container-fluid p-0">
+  <div class="vertical-center">
+    <div class="flex-row align-items-center">
+      <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-12">
-            <div class="white_box mb_30">
-              <div class="row justify-content-center">
-                <div class="col-lg-5">
-                  <!-- sign_in  -->
-                  <div class="modal-content cs_modal">
-                    <div class="modal-header justify-content-center theme_bg_1">
-                      <h5 class="modal-title text_white">Log in</h5>
+          <div class="col-md-8">
+            <div class="card-group">
+              <div class="card p-4">
+                <div class="card-body">
+                  <h1>Login</h1>
+                  <p class="text-muted">Sign In to your account</p>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend"><span class="input-group-text">
+                    <i class="fa fa-user"></i>
+                  </span>
                     </div>
-                    <div class="modal-body">
-                      <form>
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Enter your email" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
-                        </div>
-                        <div class="form-group">
-                          <input type="password" class="form-control" placeholder="Password" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: pointer;">
-                        </div>
-                        <a href="#" class="btn_1 full_width text-center">Log in</a>
-                        <div class="text-center">
-                          <a href="#" data-toggle="modal" data-target="#forgot_password" data-dismiss="modal" class="pass_forget_btn">Forget Password?</a>
-                        </div>
-                      </form>
+                    <input class="form-control" type="text" placeholder="Username">
+                  </div>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend"><span class="input-group-text">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                    </div>
+                    <input class="form-control" type="password" placeholder="Password">
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <router-link class="btn btn-primary px-4 text-white" to="/" type="button">Login</router-link>
+                    </div>
+                    <div class="col-6 text-right">
+                      <button class="btn btn-link px-0" type="button">Forgot password?</button>
                     </div>
                   </div>
                 </div>
               </div>
-
+              <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+                <div class="card-body text-center">
+                  <div>
+                    <h2>Sign up</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua.</p>
+                    <button class="btn btn-lg btn-outline-light mt-3" type="button">Register Now!</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -45,5 +59,15 @@ export default {
 </script>
 
 <style scoped>
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%) translateX(30%);
+}
 
+.fa{
+  font-size: 12px !important;
+}
 </style>

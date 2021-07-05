@@ -1,15 +1,8 @@
 <template>
-  <div class="footer_part">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="footer_iner text-center">
-            <p>&copy; 2020</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <footer class="c-footer">
+    <div><a href="https://coreui.io">CoreUI</a> © 2020 creativeLabs.</div>
+    <div class="mfs-auto">Powered by&nbsp;<a href="https://coreui.io/pro/">CoreUI Pro</a></div>
+  </footer>
 </template>
 
 <script>

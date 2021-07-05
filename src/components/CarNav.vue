@@ -1,79 +1,48 @@
 <template>
-  <!-- sidebar  -->
-  <nav class="sidebar dark_sidebar">
-    <div class="logo d-flex justify-content-between">
-      <a class="large_logo" href=""><img src="img/logo_white.png" alt=""></a>
-      <a class="small_logo" href=""><img src="img/mini_logo.png" alt=""></a>
-      <div class="sidebar_close_icon d-lg-none">
-        <i class="ti-close"></i>
-      </div>
+  <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+    <div class="c-sidebar-brand d-md-down-none">
+      <img width="60" src="/icons/logo.png">
     </div>
-    <ul id="sidebar_menu">
-      <li class="">
-        <router-link class="has-arrow" to="/" aria-expanded="false">
-          <div class="nav_icon_small">
-            <img src="img/menu-icon/1.svg" alt="">
-          </div>
-          <div class="nav_title">
-            <span>Job Cards</span>
-          </div>
-        </router-link>
+    <ul class="c-sidebar-nav ps ps--active-y">
+      <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/">
+        <i class="fa fa-home"></i> &nbsp; Dashboard</a>
       </li>
-      <li class="">
-        <router-link to="/sell" aria-expanded="false">
-          <div class="nav_icon_small">
-            <img src="img/menu-icon/2.svg" alt="">
-          </div>
-          <div class="nav_title">
-            <span>Sell Products</span>
-          </div>
-        </router-link>
+      <li class="c-sidebar-nav-title">Components</li>
+      <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="/">
+        <i class="fa fa-list"></i> &nbsp; Job Cards</a>
+        <ul class="c-sidebar-nav-dropdown-items">
+          <li class="c-sidebar-nav-item"><router-link :to="{name: 'NewJobCard'}" class="c-sidebar-nav-link" >New Job Card</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'JobCardTable' }">Job Cards List</router-link></li>
+        </ul>
       </li>
-      <li class="">
-        <router-link to="stock" aria-expanded="false">
-          <div class="nav_icon_small">
-            <img src="img/menu-icon/3.svg" alt="">
-          </div>
-          <div class="nav_title">
-            <span>Stock</span>
-          </div>
-        </router-link>
+      <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
+        <i class="fa fa-credit-card"></i> &nbsp; Payments</a>
+        <ul class="c-sidebar-nav-dropdown-items">
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'BankList'}">Banks</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'InvoiceList'}"> Invoices</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'EstimateList'}"> Estimates/Quotes</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'OrderList'}"> Orders</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'TaxConfigList'}"> Configure Tax</router-link></li>
+        </ul>
       </li>
-      <li class="">
-        <router-link to="/parts" aria-expanded="false">
-          <div class="nav_icon_small">
-            <img src="img/menu-icon/4.svg" alt="">
-          </div>
-          <div class="nav_title">
-            <span>Parts</span>
-          </div>
-        </router-link>
+      <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
+        <i class="fa fa-users"></i> &nbsp; Users</a>
+        <ul class="c-sidebar-nav-dropdown-items">
+          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/buttons.html"> Advisors</a></li>
+          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/brand-buttons.html"> Customers</a></li>
+        </ul>
       </li>
-      <li class="">
-        <router-link  to="/labour" aria-expanded="false">
-          <div class="nav_icon_small">
-            <img src="img/menu-icon/5.svg" alt="">
-          </div>
-          <div class="nav_title">
-            <span>Labour</span>
-          </div>
-        </router-link>
+      <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
+        <i class="fa fa-list"></i> &nbsp; Stock</a>
+        <ul class="c-sidebar-nav-dropdown-items">
+          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/buttons.html"> Upload Stock</a></li>
+          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/brand-buttons.html"> Stock Parts</a></li>
+          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/brand-buttons.html"> Products</a></li>
+        </ul>
       </li>
-      <li class="">
-        <router-link class="has-arrow" to="/reports" aria-expanded="false">
-          <div class="nav_icon_small">
-            <img src="img/menu-icon/6.svg" alt="">
-          </div>
-          <div class="nav_title">
-            <span>Reports</span>
-          </div>
-        </router-link>
-
-      </li>
-
     </ul>
-  </nav>
-  <!--/ sidebar  -->
+    <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-unfoldable"></button>
+  </div>
 </template>
 
 <script>
@@ -83,5 +52,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .fa{
+    font-size: 20px !important;
+  }
 </style>
