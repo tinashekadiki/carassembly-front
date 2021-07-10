@@ -1,7 +1,7 @@
 <template>
   <div>
     <Highlights></Highlights>
-    <JobCardTable v-if="jobCardsList.length" :jobCardList="jobCardsList"></JobCardTable>
+    <JobCardTable v-if="!globalLoadingState" :jobCardList="jobCardsList.data"></JobCardTable>
     <Circle10 v-else></Circle10>
   </div>
 </template>
@@ -12,8 +12,10 @@ import Highlights from "../components/Highlights";
 import JobCardTable from "./job-cards/JobCardTable";
 import {http} from "../utils/http-base";
 import Circle10 from "vue-loading-spinner/src/components/Circle10";
+import global from "../utils/global";
 
 export default {
+  mixins: [global],
   mounted() {
     this.getJobCards();
   },
@@ -34,7 +36,8 @@ export default {
           }
       ).finally(() => {
         this.globalLoadingState = false;
-      })
+        this.getAllStatuses();
+      });
     }
   }
 }

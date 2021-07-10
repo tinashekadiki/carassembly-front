@@ -17,6 +17,9 @@ import OrderList from "../views/payments/orders/OrderList";
 import TaxConfigList from "../views/payments/tax/TaxConfigList";
 import NewTax from "../views/payments/tax/NewTax";
 import JobCardsPage from "../views/JobCardsPage";
+import StatusesPage from "../views/StatusesPage";
+import StocksPageLayout from "../layouts/StocksPageLayout";
+import NewStock from "../views/stocks/NewStock";
 
 Vue.use(VueRouter)
 
@@ -30,6 +33,11 @@ const routes = [
                 path: '',
                 name: "JobCardTable",
                 component: JobCardsPage
+            },
+            {
+                path: '/edit/:id',
+                name: "EditJobCard",
+                component: NewJobCard
             }
         ]
     },
@@ -46,6 +54,39 @@ const routes = [
                 path: '/create',
                 name: "NewJobCard",
                 component: NewJobCard
+            },
+            {
+                path: '/edit/:id',
+                name: "EditJobCard",
+                component: NewJobCard
+            }
+        ]
+    },
+    {
+        path: '/stock',
+        name: 'Stock',
+        component: StocksPageLayout,
+        children: [
+            {
+                path: '',
+                name: "StockPage",
+                component: StockPage
+            },
+            {
+                path: 'create',
+                name: "NewStock",
+                component: NewStock
+            },
+        ]
+    },
+    {
+        path: 'statuses',
+        component: JobCardLayout,
+        children: [
+            {
+                path: '',
+                name: "StatusesPage",
+                component: StatusesPage
             }
         ]
     },
@@ -117,13 +158,7 @@ const routes = [
         path: '/parts',
         name: 'Parts',
         component: PartsPage
-    },
-
-    {
-        path: '/stock',
-        name: 'Stock',
-        component: StockPage
-    },
+    }
 ]
 
 const router = new VueRouter({

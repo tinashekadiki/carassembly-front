@@ -37,9 +37,8 @@
                 <div class="card-body text-center">
                   <div>
                     <h2>Sign up</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua.</p>
-                    <button class="btn btn-lg btn-outline-light mt-3" type="button">Register Now!</button>
+                    <p>This is the Login Screen for the automotive garage management system. Please enter your credentials to proceed.</p>
+                    <button class="btn btn-lg btn-outline-light mt-3" type="button">Get Started Now!</button>
                   </div>
                 </div>
               </div>

@@ -12,7 +12,8 @@
         <i class="fa fa-list"></i> &nbsp; Job Cards</a>
         <ul class="c-sidebar-nav-dropdown-items">
           <li class="c-sidebar-nav-item"><router-link :to="{name: 'NewJobCard'}" class="c-sidebar-nav-link" >New Job Card</router-link></li>
-          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'JobCardTable' }">Job Cards List</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" to="/">Job Cards List</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'StatusesPage'}">Job Cards Statuses</router-link></li>
         </ul>
       </li>
       <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
@@ -35,7 +36,7 @@
       <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
         <i class="fa fa-list"></i> &nbsp; Stock</a>
         <ul class="c-sidebar-nav-dropdown-items">
-          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/buttons.html"> Upload Stock</a></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" to="/stock/create">New Stock</router-link></li>
           <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/brand-buttons.html"> Stock Parts</a></li>
           <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/brand-buttons.html"> Products</a></li>
         </ul>
