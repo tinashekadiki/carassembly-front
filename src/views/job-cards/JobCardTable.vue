@@ -17,8 +17,8 @@
         </thead>
         <tbody v-if="jobCardList ? jobCardList.length : 0">
         <tr v-for="jobCard in jobCardList" :key="jobCard.id">
-          <td>{{ jobCard.customer.customerName }}</td>
-          <td>{{jobCard.vehicle.regNumber}}</td>
+          <td>{{ jobCard.customer ? jobCard.customer.customerName : '' }}</td>
+          <td>{{jobCard.vehicle ? jobCard.vehicle.regNumber : ''}}</td>
           <td>{{jobCard.vehicle.attribute.serviceType.serviceTypeName}}</td>
           <td><span class="badge badge-success">{{ jobCard.status ? jobCard.status.statusName : 'Pending' }}</span></td>
           <td>{{ jobCard.vehicle.carType.model }}</td>

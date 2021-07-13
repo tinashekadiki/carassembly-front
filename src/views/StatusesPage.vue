@@ -1,11 +1,15 @@
 <template>
 <div>
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
       <label>Status Name</label>
       <input class="form-control" v-model="status.statusName" placeholder="Status Name">
     </div>
-    <div class="col-md-3 mt-30">
+    <div class="col-md-2">
+      <label>Status Color Code</label>
+      <input class="form-control" type="color" v-model="status.hexColor" placeholder="Status Name">
+    </div>
+    <div class="col-md-2 mt-30">
       <button class="btn btn-facebook" @click="saveStatus()">Save Status</button>
     </div>
   </div>
@@ -52,7 +56,8 @@ export default {
     return {
       status: {
         id: '',
-        statusName: ''
+        statusName: '',
+        hexColor: ''
       }
     }
   },

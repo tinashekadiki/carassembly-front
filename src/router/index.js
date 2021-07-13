@@ -20,13 +20,13 @@ import JobCardsPage from "../views/JobCardsPage";
 import StatusesPage from "../views/StatusesPage";
 import StocksPageLayout from "../layouts/StocksPageLayout";
 import NewStock from "../views/stocks/NewStock";
+import CustomersPage from "../views/CustomersPage";
 
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/',
-        name: 'Home',
         component: JobCardLayout,
         children: [
             {
@@ -42,14 +42,9 @@ const routes = [
         ]
     },
     {
-        path: 'job-cards',
+        path: '/job-cards/',
         component: JobCardLayout,
         children: [
-            {
-                path: '',
-                name: "JobCardTable",
-                component: JobCardsPage
-            },
             {
                 path: '/create',
                 name: "NewJobCard",
@@ -63,8 +58,7 @@ const routes = [
         ]
     },
     {
-        path: '/stock',
-        name: 'Stock',
+        path: '/stock/',
         component: StocksPageLayout,
         children: [
             {
@@ -80,7 +74,7 @@ const routes = [
         ]
     },
     {
-        path: 'statuses',
+        path: '/statuses/',
         component: JobCardLayout,
         children: [
             {
@@ -91,7 +85,18 @@ const routes = [
         ]
     },
     {
-        path: 'payments',
+        path: '/customers/',
+        component: JobCardLayout,
+        children: [
+            {
+                path: '',
+                name: "CustomersPage",
+                component: CustomersPage
+            }
+        ]
+    },
+    {
+        path: '/payments/',
         component: PaymentsLayout,
         children: [
             {
@@ -138,11 +143,10 @@ const routes = [
     },
     {
         path: '/profile',
-        name: 'Profile',
         component: ProfileLayout,
         children: [
             {
-                path: '/',
+                path: '',
                 name: 'ViewProfile',
                 component: ViewProfile,
             }

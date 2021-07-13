@@ -1,7 +1,7 @@
 import {http} from "./http-base";
 
 export default {
-    data(){
+    data() {
         return {
             globalLoadingState: false,
             statusList: [],
@@ -9,7 +9,7 @@ export default {
         }
     },
     methods: {
-        getAllStatuses(){
+        getAllStatuses() {
             this.globalLoadingState = true;
             http.get('status/list').then(res => {
                 this.statusList = res.data;
@@ -19,6 +19,9 @@ export default {
             }).finally(() => {
                 this.globalLoadingState = false;
             });
+        },
+        formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString();
         }
     }
 }

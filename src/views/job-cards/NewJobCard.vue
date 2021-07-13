@@ -85,8 +85,19 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label>Color</label>
-                <input class="form-control" type="color" placeholder="Input Color"
-                       v-model="jobCard.vehicle.attribute.hexColor">
+                <select class="form-control" v-model="jobCard.vehicle.attribute.hexColor">
+                  <option value="">Select Color</option>
+                  <option>Black</option>
+                  <option>Silver</option>
+                  <option>White</option>
+                  <option>Gold</option>
+                  <option>Red</option>
+                  <option>Green</option>
+                  <option>Blue</option>
+                  <option>Pink</option>
+                  <option>Yellow</option>
+                  <option>Orange</option>
+                </select>
               </div>
             </div>
             <div class="col-md-3">
@@ -209,7 +220,6 @@
                          v-model="jobCard.customer.mobileNumber">
                 </div>
               </div>
-            </div>
 
             <div class="col-md-3">
               <div class="form-group">
@@ -221,7 +231,7 @@
           </div>
         </div>
 
-
+        </div>
         </div>
 
         <div class="card-body">
@@ -254,11 +264,6 @@ export default {
   data() {
     return {
       editing: false,
-      oderPart: {
-        stockPart: {
-
-        }
-      },
       jobCard: {
         jobCardNumber: Date.now().toString(),
         arrivalDate: "",
@@ -318,8 +323,6 @@ export default {
         ).finally(() => {
           this.globalLoadingState = false;
         })
-      }else{
-        this.jobCard = {};
       }
     },
     saveJobCard() {
@@ -334,6 +337,7 @@ export default {
           this.globalLoadingState = false;
         })
       }else{
+        delete this.jobCard.status;
         http.post('/job-cards/create', this.jobCard).then(() => {
           this.$router.push('/')
         }).catch(err => {
@@ -343,9 +347,6 @@ export default {
           this.globalLoadingState = false;
         })
       }
-    },
-    formatDate(dateString){
-      return new Date(dateString).toLocaleDateString();
     }
   }
 }
