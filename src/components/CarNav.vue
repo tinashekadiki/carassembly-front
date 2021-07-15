@@ -36,9 +36,7 @@
       <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
         <i class="fa fa-list"></i> &nbsp; Stock</a>
         <ul class="c-sidebar-nav-dropdown-items">
-          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" to="/stock/create">New Stock</router-link></li>
-          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/brand-buttons.html"> Stock Parts</a></li>
-          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/brand-buttons.html"> Products</a></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" to="/stocks">List Stock</router-link></li>
         </ul>
       </li>
     </ul>

@@ -7,7 +7,6 @@ import StockPage from "../views/StockPage";
 import ProfileLayout from "../layouts/ProfileLayout";
 import ViewProfile from "../views/profile/ViewProfile";
 import NewJobCard from "../views/job-cards/NewJobCard";
-import JobCardLayout from "../layouts/JobCardLayout";
 import PaymentsLayout from "../layouts/PaymentsLayout";
 import BankList from "../views/payments/banks/BankList";
 import NewBankDetails from "../views/payments/banks/NewBankDetails";
@@ -56,26 +55,14 @@ const routes = [
         component: NewStock
     },
     {
-        path: '/customers/',
-        component: JobCardLayout,
-        children: [
-            {
-                path: '',
-                name: "CustomersPage",
-                component: CustomersPage
-            }
-        ]
+        path: '/customers',
+        name: "CustomersPage",
+        component: CustomersPage
     },
     {
-        path: '/users/',
-        component: JobCardLayout,
-        children: [
-            {
-                path: '',
-                name: "AdvisorsPage",
-                component: AdvisorsPage
-            }
-        ]
+        path: '/users',
+        name: "AdvisorsPage",
+        component: AdvisorsPage
     },
     {
         path: '/payments/',

@@ -13,8 +13,8 @@
           <th>Stock Quantity</th>
         </tr>
         </thead>
-        <tbody v-if="stockParts ? stockParts.length : 0">
-        <tr v-for="stockPart in stockParts" :key="stockPart.id">
+        <tbody v-if="stockPartsList ? stockPartsList.length : 0">
+        <tr v-for="stockPart in stockPartsList" :key="stockPart.id">
           <td>{{ stockPart.partName }}</td>
           <td>{{ stockPart.price }}</td>
           <td>{{ stockPart.partOrLabour }}</td>
@@ -38,9 +38,16 @@
 </template>
 
 <script>
+import global from "../../utils/global";
 export default {
+  mixins: [global],
   name: "StocksTable",
-  props: ['stockParts']
+  mounted() {
+    this.fetchStockParts();
+    this.$root.$on('stockAdded', () => {
+      this.fetchStockParts();
+    });
+  }
 }
 </script>
 

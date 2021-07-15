@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <JobCardLayout title="Advisors">
     <div class="row">
       <div class="col-md-6">
         <label>Advisor Name</label>
@@ -50,7 +50,7 @@
       </table>
     </div>
 
-  </div>
+  </JobCardLayout>
 
 </template>
 
@@ -59,11 +59,13 @@
 import {http} from "../utils/http-base";
 import Circle10 from "vue-loading-spinner/src/components/Circle10";
 import global from "../utils/global";
+import JobCardLayout from "../layouts/JobCardLayout";
 
 export default {
   name: "AdvisorsPage",
   mixins: [global],
   components: {
+    JobCardLayout,
     Circle10,
   },
   mounted() {
@@ -79,13 +81,11 @@ export default {
           postName: ''
         }
       },
-      advisorsList: [],
       editing: false
     }
   },
   methods: {
     createAdvisor() {
-
       if (this.editing) {
         this.globalLoadingState = true;
         http.put(`advisor/edit/${this.advisor.id}`, this.advisor).then(res => {
@@ -120,19 +120,6 @@ export default {
         );
       }
 
-    },
-    fetchAdvisors() {
-      this.globalLoadingState = true;
-      http.get('/advisor/list').then(res => {
-        this.advisorsList = res.data;
-
-      }).catch(err => {
-        console.log(err)
-      }).finally( ()=>{
-        this.globalLoadingState = false;
-          }
-
-      );
     },
     setEditingMode(advisor) {
       this.editing = true;

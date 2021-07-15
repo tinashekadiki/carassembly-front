@@ -1,8 +1,9 @@
 import axios from 'axios';
-import config from "./global";
+
+console.log(global)
 
 export const http = axios.create({
-    baseURL: config.data().globalBaseUrl,
+    baseURL: 'http://localhost:8080/api/',
     headers: {
         Authorization: 'Bearer {token}'
     }

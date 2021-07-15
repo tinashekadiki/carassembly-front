@@ -3,15 +3,15 @@
     <div class="row">
       <div class="col-md-4">
         <label>Tax Title</label>
-        <input class="form-control" v-model="taxData.taxName" placeholder="Status Name">
+        <input class="form-control" v-model="taxData.taxName" placeholder="Tax Title">
       </div>
       <div class="col-md-4">
         <label>Tax Type</label>
-        <input class="form-control" v-model="taxData.taxType" placeholder="Status Name">
+        <input class="form-control" v-model="taxData.taxType" placeholder="Tax Type">
       </div>
       <div class="col-md-4">
         <label>Tax Percentage</label>
-        <input class="form-control" v-model="taxData.taxPercentage" placeholder="Status Name">
+        <input class="form-control" v-model="taxData.taxPercentage" placeholder="Tax Percentage">
       </div>
     </div>
     <br>
@@ -26,17 +26,20 @@
         <thead>
         <tr>
           <th>Status Name</th>
+          <th>Status Type</th>
+          <th>Status %ge</th>
           <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr v-for="tax in taxList" :key="tax.id">
-          <td>{{ tax.statusName }}</td>
+          <td>{{ tax.taxName }}</td>
+          <td>{{ tax.taxType }}</td>
+          <td>{{ tax.taxPercentage }}</td>
           <td>
             <button class="btn btn-success">
               <i class="fa fa-edit"></i>
             </button>
-
             <button class="btn btn-danger">
               <i class="fa fa-remove"></i>
             </button>
@@ -55,10 +58,12 @@ import {http} from "../../../utils/http-base";
 
 export default {
   mixins: [global],
+  mounted() {
+    this.retrieveTaxList()
+  },
   name: "TaxConfigList",
   data(){
     return {
-      taxList: [],
       taxData: {
         taxType: "",
         taxName: "",
@@ -71,19 +76,23 @@ export default {
       this.globalLoadingState = true;
       http.post(`tax/create`, this.taxData).then(res => {
         console.log(res)
+        this.retrieveTaxList()
       }).catch(err => {
         console.log(err)
       }).finally(() => {
         this.globalLoadingState = false;
       })
-    },
-    retrieveTaxList(){
-      http.get(`tax/list`).then().catch().finally()
     }
   }
 }
 </script>
 
 <style scoped>
+  .fa {
+    font-size: 16px;
+  }
 
+  .btn {
+    margin: 10px;
+  }
 </style>

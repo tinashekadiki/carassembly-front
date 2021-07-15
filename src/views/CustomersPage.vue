@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <JobCardLayout title="Customers">
     <div class="row">
       <div class="col-md-6">
         <label>Customer Name</label>
@@ -60,19 +60,19 @@
         </tr>
         </tbody>
       </table>
-
     </div>
-
-  </div>
+  </JobCardLayout>
 </template>
 
 <script>
 import {http} from "../utils/http-base";
 import global from "../utils/global";
 import Circle10 from "vue-loading-spinner/src/components/Circle10";
+import JobCardLayout from "../layouts/JobCardLayout";
 export default {
   name: "CustomersPage",
   components: {
+    JobCardLayout,
     Circle10,
   },
   mounted() {

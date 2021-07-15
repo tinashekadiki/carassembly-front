@@ -3,12 +3,26 @@ import {http} from "./http-base";
 export default {
     data() {
         return {
+            taxList: [],
             globalLoadingState: false,
             statusList: [],
-            globalBaseUrl: 'http://localhost:8081/api/'
+            advisorsList: [],
+            stockPartsList: [],
+            orderParts: []
         }
     },
     methods: {
+        fetchStockParts(){
+            this.globalLoadingState = true;
+            http.get('/stock/list').then(resp => {
+                this.stockPartsList = resp.data;
+            }).catch(err => {
+                    console.log(err)
+                }
+            ).finally(() => {
+                this.globalLoadingState = false;
+            });
+        },
         getAllStatuses() {
             this.globalLoadingState = true;
             http.get('status/list').then(res => {
@@ -22,6 +36,30 @@ export default {
         },
         formatDate(dateString) {
             return new Date(dateString).toLocaleDateString();
+        },
+        fetchAdvisors() {
+            this.globalLoadingState = true;
+            http.get('/advisor/list').then(res => {
+                this.advisorsList = res.data;
+
+            }).catch(err => {
+                console.log(err)
+            }).finally( ()=>{
+                    this.globalLoadingState = false;
+                }
+
+            );
+        },
+        retrieveTaxList(){
+            this.globalLoadingState = false;
+            http.get(`tax/list`).then(resp =>{
+                    this.taxList = resp.data;
+                }
+            ).catch(err => {
+                console.log(err)
+            }).finally(() => {
+                this.globalLoadingState = false;
+            })
         }
     }
 }

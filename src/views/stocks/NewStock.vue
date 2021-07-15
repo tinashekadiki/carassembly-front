@@ -54,9 +54,10 @@
 
 <script>
 import {http} from "../../utils/http-base";
+import global from "../../utils/global";
 
 export default {
-
+  mixins: [global],
   name: "NewStock",
   data(){
     return {
@@ -75,10 +76,10 @@ export default {
     saveStockPart(){
       this.globalLoadingState = true;
       http.post(`/stock/create`, this.stockPart).then(() => {
-        this.$router.push('/stock')
+        this.$root.$emit('stockAdded');
       }).catch(err => {
             console.log(err)
-          }
+      }
       ).finally(() => {
         this.globalLoadingState = false;
       })

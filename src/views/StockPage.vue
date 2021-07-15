@@ -1,41 +1,20 @@
 <template>
     <JobCardLayout title="Stocks">
-
-      <StocksTable :stockParts="stockParts"></StocksTable>
+      <NewStock></NewStock>
+      <StocksTable></StocksTable>
     </JobCardLayout>
 </template>
 
 <script>
-import StocksTable from "./stocks/StocksTable";
-import {http} from "../utils/http-base";
 import global from "../utils/global";
 import JobCardLayout from "../layouts/JobCardLayout";
+import NewStock from "./stocks/NewStock";
+import StocksTable from "./stocks/StocksTable";
 
 export default {
   name: "StockPage",
   mixins: [global],
-  components: {JobCardLayout, StocksTable},
-  mounted() {
-    this.fetchStockParts();
-  },
-  data(){
-    return {
-      stockParts: []
-    }
-  },
-  methods: {
-    fetchStockParts(){
-      this.globalLoadingState = true;
-      http.get('/stock/list').then(resp => {
-        this.stockParts = resp.data;
-      }).catch(err => {
-            console.log(err)
-          }
-      ).finally(() => {
-        this.globalLoadingState = false;
-      });
-    }
-  }
+  components: {StocksTable, NewStock, JobCardLayout},
 }
 </script>
 
