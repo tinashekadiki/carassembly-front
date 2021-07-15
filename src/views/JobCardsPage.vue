@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <JobCardLayout title="Job Cards" newRoute="create">
     <Highlights></Highlights>
     <JobCardTable v-if="!globalLoadingState" :jobCardList="jobCardsList.data"></JobCardTable>
     <Circle10 v-else></Circle10>
-  </div>
+  </JobCardLayout>
 </template>
 
 <script>
@@ -13,6 +13,7 @@ import JobCardTable from "./job-cards/JobCardTable";
 import {http} from "../utils/http-base";
 import Circle10 from "vue-loading-spinner/src/components/Circle10";
 import global from "../utils/global";
+import JobCardLayout from "../layouts/JobCardLayout";
 
 export default {
   mixins: [global],
@@ -25,7 +26,7 @@ export default {
     }
   },
   name: 'JobCardsPage',
-  components: {JobCardTable, Highlights, Circle10},
+  components: {JobCardLayout, JobCardTable, Highlights, Circle10},
   methods: {
     getJobCards(){
       this.globalLoadingState = true;

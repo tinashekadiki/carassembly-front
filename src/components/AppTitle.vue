@@ -88,9 +88,9 @@
         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
         <li class="breadcrumb-item active">{{ title }}</li>
       </ol>
-      <div class="c-subheader-nav d-md-down-none mfe-2">
+      <div v-if="link !== undefined" class="c-subheader-nav d-md-down-none mfe-2">
 
-        <router-link to="" class="c-subheader-nav-link">
+        <router-link :to="link" class="c-subheader-nav-link">
           <i class="fa fa-add"></i> &nbsp;New Job Card
         </router-link>
       </div>

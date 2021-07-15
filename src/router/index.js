@@ -18,7 +18,6 @@ import TaxConfigList from "../views/payments/tax/TaxConfigList";
 import NewTax from "../views/payments/tax/NewTax";
 import JobCardsPage from "../views/JobCardsPage";
 import StatusesPage from "../views/StatusesPage";
-import StocksPageLayout from "../layouts/StocksPageLayout";
 import NewStock from "../views/stocks/NewStock";
 import CustomersPage from "../views/CustomersPage";
 
@@ -26,63 +25,34 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/',
-        component: JobCardLayout,
-        children: [
-            {
-                path: '',
-                name: "JobCardTable",
-                component: JobCardsPage
-            },
-            {
-                path: '/edit/:id',
-                name: "EditJobCard",
-                component: NewJobCard
-            }
-        ]
+        path: '',
+        name: "JobCardTable",
+        component: JobCardsPage
     },
     {
-        path: '/job-cards/',
-        component: JobCardLayout,
-        children: [
-            {
-                path: '/create',
-                name: "NewJobCard",
-                component: NewJobCard
-            },
-            {
-                path: '/edit/:id',
-                name: "EditJobCard",
-                component: NewJobCard
-            }
-        ]
+        path: '/edit/:id',
+        name: "EditJobCard",
+        component: NewJobCard
     },
     {
-        path: '/stock/',
-        component: StocksPageLayout,
-        children: [
-            {
-                path: '',
-                name: "StockPage",
-                component: StockPage
-            },
-            {
-                path: 'create',
-                name: "NewStock",
-                component: NewStock
-            },
-        ]
+        path: '/create',
+        name: "NewJobCard",
+        component: NewJobCard
     },
     {
         path: '/statuses/',
-        component: JobCardLayout,
-        children: [
-            {
-                path: '',
-                name: "StatusesPage",
-                component: StatusesPage
-            }
-        ]
+        name: "StatusesPage",
+        component: StatusesPage
+    },
+    {
+        path: '/stocks',
+        name: "StockPage",
+        component: StockPage
+    },
+    {
+        path: '/stocks/create',
+        name: "NewStock",
+        component: NewStock
     },
     {
         path: '/customers/',

@@ -2,7 +2,7 @@
   <div class="fade-in">
     <div class="row">
       <div v-for="status in statusList" :key="status.id" class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-gradient-primary">
+        <div class="card text-white" :style="`background-color: ${status.hexColor}`">
           <div class="card-body card-body pb-0 d-flex justify-content-between align-items-start">
             <div>
               <div class="text-value-lg">2345</div>

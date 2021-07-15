@@ -20,7 +20,8 @@
           <td>{{ jobCard.customer ? jobCard.customer.customerName : '' }}</td>
           <td>{{jobCard.vehicle ? jobCard.vehicle.regNumber : ''}}</td>
           <td>{{jobCard.vehicle.attribute.serviceType.serviceTypeName}}</td>
-          <td><span class="badge badge-success">{{ jobCard.status ? jobCard.status.statusName : 'Pending' }}</span></td>
+          <td v-if="jobCard.status"><span class="badge text-white" :style="`background-color: ${jobCard.status.hexColor}`">{{jobCard.status.statusName}}</span></td>
+          <td v-else><span class="badge badge-success">Pending</span></td>
           <td>{{ jobCard.vehicle.carType.model }}</td>
           <td>{{ jobCard.arrivalDate }}</td>
           <td>{{ jobCard.insurance.length ? jobCard.insurance : "No Insurance" }}</td>

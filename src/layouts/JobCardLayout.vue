@@ -1,10 +1,10 @@
 <template>
   <div class="c-wrapper c-wrapper-fluid">
-    <AppTitle title="Job Cards"></AppTitle>
+    <AppTitle :title="title" :link="newRoute"></AppTitle>
     <div class="c-body">
       <main class="c-main">
         <div class="container-fluid">
-          <router-view></router-view>
+          <slot />
         </div>
       </main>
     </div>
@@ -14,6 +14,7 @@
 <script>
 import AppTitle from "../components/AppTitle";
 export default {
+  props: ['title', 'newRoute'],
   name: "JobCardLayout",
   components: {AppTitle}
 }

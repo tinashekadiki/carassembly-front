@@ -126,6 +126,7 @@ export default {
           console.log(err)
         }).finally(()=>{
               this.globalLoadingState = false;
+          this.fetchCustomers();
             }
         );
       }

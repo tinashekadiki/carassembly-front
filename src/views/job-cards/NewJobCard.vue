@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <JobCardLayout title="Job Cards" new-route="create">
     <div class="card">
       <div class="card-header"><strong>New Job Card</strong> <small>Form</small></div>
       <div class="card-body">
@@ -241,7 +241,7 @@
           <Circle10 v-else></Circle10>
         </div>
       </div>
-    </div>
+    </JobCardLayout>
 
 </template>
 
@@ -250,6 +250,7 @@ import {http} from "../../utils/http-base";
 import global from "../../utils/global";
 
 import Circle10 from "vue-loading-spinner/src/components/Circle10";
+import JobCardLayout from "../../layouts/JobCardLayout";
 
 export default {
   name: "NewJobCard",
@@ -259,6 +260,7 @@ export default {
     this.getAllStatuses();
   },
   components: {
+    JobCardLayout,
     Circle10
   },
   data() {

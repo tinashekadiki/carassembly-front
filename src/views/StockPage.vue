@@ -1,20 +1,20 @@
 <template>
-  <div>
-    <StocksTable :stockParts="stockParts"></StocksTable>
-<!--    <Circle10 v-else></Circle10>-->
-  </div>
+    <JobCardLayout title="Stocks">
+
+      <StocksTable :stockParts="stockParts"></StocksTable>
+    </JobCardLayout>
 </template>
 
 <script>
 import StocksTable from "./stocks/StocksTable";
-// import Circle10 from "vue-loading-spinner/src/components/Circle10";
 import {http} from "../utils/http-base";
 import global from "../utils/global";
+import JobCardLayout from "../layouts/JobCardLayout";
 
 export default {
   name: "StockPage",
   mixins: [global],
-  components: {StocksTable},
+  components: {JobCardLayout, StocksTable},
   mounted() {
     this.fetchStockParts();
   },
