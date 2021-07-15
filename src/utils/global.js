@@ -5,7 +5,7 @@ export default {
         return {
             globalLoadingState: false,
             statusList: [],
-            globalBaseUrl: 'http://localhost:8080/api/'
+            globalBaseUrl: 'http://localhost:8081/api/'
         }
     },
     methods: {

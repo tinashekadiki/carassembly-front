@@ -20,6 +20,7 @@ import JobCardsPage from "../views/JobCardsPage";
 import StatusesPage from "../views/StatusesPage";
 import NewStock from "../views/stocks/NewStock";
 import CustomersPage from "../views/CustomersPage";
+import AdvisorsPage from "../views/AdvisorsPage";
 
 Vue.use(VueRouter)
 
@@ -62,6 +63,17 @@ const routes = [
                 path: '',
                 name: "CustomersPage",
                 component: CustomersPage
+            }
+        ]
+    },
+    {
+        path: '/users/',
+        component: JobCardLayout,
+        children: [
+            {
+                path: '',
+                name: "AdvisorsPage",
+                component: AdvisorsPage
             }
         ]
     },
