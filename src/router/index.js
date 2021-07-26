@@ -65,6 +65,11 @@ const routes = [
         component: AdvisorsPage
     },
     {
+        path: '/tax',
+        name: "TaxConfigList",
+        component: TaxConfigList
+    },
+    {
         path: '/payments/',
         component: PaymentsLayout,
         children: [
@@ -92,11 +97,6 @@ const routes = [
                 path: '/orders',
                 name: "OrderList",
                 component: OrderList
-            },
-            {
-                path: '/tax',
-                name: "TaxConfigList",
-                component: TaxConfigList
             },
             {
                 path: '/orders',
