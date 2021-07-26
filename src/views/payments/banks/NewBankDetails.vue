@@ -1,48 +1,52 @@
 <template>
-  <div>
-    <div class="row">
-      <div class="col-md-6">
-        <label>Bank Name</label>
-        <input class="form-control" v-model="bank.bankName" placeholder="Bank Name">
+  <PaymentsLayout title="Banks">
+    <div>
+      <div class="row">
+        <div class="col-md-6">
+          <label>Bank Name</label>
+          <input class="form-control" v-model="bank.bankName" placeholder="Bank Name">
+        </div>
+        <div class="col-md-4 mt-4" v-if="!globalLoadingState">
+          <button class="btn btn-facebook" @click="crateBank()">Save Bank</button>
+        </div>
+        <Circle10 v-else></Circle10>
       </div>
-      <div class="col-md-4 mt-4" v-if="!globalLoadingState">
-        <button class="btn btn-facebook" @click="crateBank()">Save Bank</button>
+      <div class="row mt-5">
+        <table class="table table-responsive-sm table-striped table-bordered">
+          <thead>
+          <tr>
+            <th>Bank Name</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody v-if="banks.length">
+          <tr v-for="bank in banks" :key="bank.id">
+            <td>{{ bank.bankName }}</td>
+            <td>
+              <button class="btn btn-success mt-30" @click="setEditingMode(bank)">
+                <i class="fa fa-edit"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+          <p v-else>No Banks Available</p>
+        </table>
       </div>
-      <Circle10 v-else></Circle10>
     </div>
-    <div class="row mt-5">
-      <table class="table table-responsive-sm table-striped table-bordered">
-        <thead>
-        <tr>
-          <th>Bank Name</th>
-          <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody v-if="banks.length">
-        <tr v-for="bank in banks" :key="bank.id">
-          <td>{{ bank.bankName }}</td>
-          <td>
-            <button class="btn btn-success mt-30" @click="setEditingMode(bank)">
-              <i class="fa fa-edit"></i>
-            </button>
-          </td>
-        </tr>
-        </tbody>
-        <p v-else>No Banks Available</p>
-      </table>
-    </div>
-  </div>
+  </PaymentsLayout>
 </template>
 
 <script>
 import {http} from "../../../utils/http-base";
 import global from "../../../utils/global";
 import Circle10 from "vue-loading-spinner/src/components/Circle10";
+import PaymentsLayout from "../../../layouts/PaymentsLayout";
 
 export default {
   name: "NewBankDetails",
   mixins:[global],
   components: {
+    PaymentsLayout,
     Circle10,
   },
   mounted() {

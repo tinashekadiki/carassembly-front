@@ -8,7 +8,8 @@ export default {
             statusList: [],
             advisorsList: [],
             stockPartsList: [],
-            orderParts: []
+            orderParts: [],
+            serviceTypes: [],
         }
     },
     methods: {
@@ -28,6 +29,17 @@ export default {
             http.get('status/list').then(res => {
                 this.statusList = res.data;
                 console.log(this.statusList)
+            }).catch(err => {
+                console.log(err)
+            }).finally(() => {
+                this.globalLoadingState = false;
+            });
+        },
+        getAllServiceTypes() {
+            this.globalLoadingState = true;
+            http.get('service-types/list').then(res => {
+                this.serviceTypes = res.data;
+                console.log(this.serviceTypes)
             }).catch(err => {
                 console.log(err)
             }).finally(() => {

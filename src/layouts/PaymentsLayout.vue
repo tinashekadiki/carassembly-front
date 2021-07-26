@@ -4,7 +4,7 @@
     <div class="c-body">
       <main class="c-main">
         <div class="container-fluid">
-          <router-view></router-view>
+          <slot></slot>
         </div>
       </main>
     </div>

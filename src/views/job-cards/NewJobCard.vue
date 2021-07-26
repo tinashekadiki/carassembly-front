@@ -115,11 +115,14 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" v-if="editing">
               <div class="form-group">
                 <label>Service Type</label>
-                <input class="form-control" type="text" placeholder="Input Service Type"
-                       v-model="jobCard.vehicle.attribute.serviceType.serviceTypeName">
+                <select class="form-control" v-model="jobCard.vehicle.attribute.serviceType">
+                  <option v-for="serviceType in serviceTypes" :key="serviceType.id" :value="serviceType" >{{serviceType.serviceTypeName}}</option>
+                </select>
+<!--                <input class="form-control" type="text" placeholder="Input Service Type"-->
+<!--                       v-model="jobCard.vehicle.attribute.serviceType.serviceTypeName">-->
               </div>
             </div>
           </div>
@@ -274,6 +277,7 @@ export default {
   mounted() {
     this.setEditing();
     this.getAllStatuses();
+    this.getAllServiceTypes();
     this.fetchAdvisors();
     this.fetchStockParts();
     this.retrieveTaxList()
@@ -383,6 +387,7 @@ export default {
       } else {
         delete this.jobCard.status;
         delete this.jobCard.vehicle.attribute.advisor
+        delete this.jobCard.vehicle.attribute.serviceType
         http.post('/job-cards/create', this.jobCard).then(() => {
           this.$router.push('/')
         }).catch(err => {

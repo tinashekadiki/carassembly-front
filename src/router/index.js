@@ -8,7 +8,6 @@ import ProfileLayout from "../layouts/ProfileLayout";
 import ViewProfile from "../views/profile/ViewProfile";
 import NewJobCard from "../views/job-cards/NewJobCard";
 import PaymentsLayout from "../layouts/PaymentsLayout";
-import BankList from "../views/payments/banks/BankList";
 import NewBankDetails from "../views/payments/banks/NewBankDetails";
 import InvoiceList from "../views/payments/invoices/InvoiceList";
 import EstimateList from "../views/payments/invoices/EstimateList";
@@ -65,14 +64,15 @@ const routes = [
         component: AdvisorsPage
     },
     {
+        path: '/payments/banks',
+        name: "BankList",
+        component: NewBankDetails
+    },
+    {
         path: '/payments/',
         component: PaymentsLayout,
         children: [
-            {
-                path: 'banks',
-                name: "BankList",
-                component: BankList
-            },
+
             {
                 path: 'banks/new',
                 name: "NewBankDetails",
