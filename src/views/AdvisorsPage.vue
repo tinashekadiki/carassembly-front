@@ -20,7 +20,6 @@
         </div>
         <Circle10 v-else></Circle10>
 
-
     </div>
 
     <div class="row mt-5">
@@ -104,7 +103,7 @@ export default {
                 }
 
               };
-              this.fetchCustomers();
+              this.fetchAdvisors();
             }
         );
       } else {

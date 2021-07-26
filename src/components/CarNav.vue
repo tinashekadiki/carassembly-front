@@ -19,7 +19,8 @@
       <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
         <i class="fa fa-credit-card"></i> &nbsp; Payments</a>
         <ul class="c-sidebar-nav-dropdown-items">
-          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'BankList'}">Banks</router-link></li>
+<!--          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'BankList'}">Banks</router-link></li>-->
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'NewBankDetails'}">Banks</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'InvoiceList'}"> Invoices</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'EstimateList'}"> Estimates/Quotes</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'OrderList'}"> Orders</router-link></li>
