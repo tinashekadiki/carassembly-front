@@ -117,7 +117,6 @@ const routes = [
                 name: "OrderList",
                 component: OrderList
             },
-
             {
                 path: '/orders',
                 name: "NewTax",
