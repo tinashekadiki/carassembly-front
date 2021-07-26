@@ -1,16 +1,16 @@
 <template>
   <div class="fade-in">
     <div class="row">
-      <div v-for="status in statusList" :key="status.id" class="col-sm-6 col-lg-3">
-        <div class="card text-white" :style="`background-color: ${status.status.hexColor}`">
+      <div v-for="highlight in statusList" :key="highlight.id" class="col-sm-6 col-lg-3">
+        <div class="card text-white" :style="`background-color: ${highlight.status.hexColor}`">
           <div class="card-body card-body pb-0 d-flex justify-content-between align-items-start">
             <div>
-              <div class="text-value-lg">{{ status.number }}</div>
-              <div>{{ status.status.statusName }}</div>
+              <div class="text-value-lg">{{ highlight.number }}</div>
+              <div>{{ highlight.status.statusName }}</div>
             </div>
             <div class="btn-group">
               <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-sort"></i>
+                <i :class="highlight.status.icon"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
             </div>
@@ -50,5 +50,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .fa{
+    font-size: 36px;
+  }
 </style>

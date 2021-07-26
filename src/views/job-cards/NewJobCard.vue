@@ -253,11 +253,16 @@
         </div>
       </div>
 
-      <div class="card-body">
-        <div class="row" v-if="!globalLoadingState">
+      <div class="card-body row">
+        <div class="col-md-2" v-if="!globalLoadingState">
           <button class="btn btn-primary" @click="saveJobCard()">Save Job Card</button>
         </div>
-        <Circle10 v-else></Circle10>
+
+        <div class="col-md-7"></div>
+
+        <div class="col-md-3" v-if="editing && this.jobCard.invoice.id">
+          <router-link :to="`/invoices/${this.jobCard.invoice.id}`" class="btn btn-facebook">Generate Invoice</router-link>
+        </div>
       </div>
     </div>
   </JobCardLayout>
@@ -267,8 +272,6 @@
 <script>
 import {http} from "../../utils/http-base";
 import global from "../../utils/global";
-
-import Circle10 from "vue-loading-spinner/src/components/Circle10";
 import JobCardLayout from "../../layouts/JobCardLayout";
 
 export default {
@@ -283,8 +286,7 @@ export default {
     this.retrieveTaxList()
   },
   components: {
-    JobCardLayout,
-    Circle10
+    JobCardLayout
   },
   data() {
     return {

@@ -14,6 +14,7 @@
           <li class="c-sidebar-nav-item"><router-link :to="{name: 'NewJobCard'}" class="c-sidebar-nav-link" >New Job Card</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" to="/">Job Cards List</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'StatusesPage'}">Job Cards Statuses</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'ServiceTypePage'}">Service Types</router-link></li>
         </ul>
       </li>
       <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">

@@ -73,5 +73,17 @@ export default {
                 this.globalLoadingState = false;
             })
         }
+    },
+    notifications: {
+        showSuccessMessage: { // You can have any name you want instead of 'showLoginError'
+            title: 'Success',
+            message: 'Your request was successful',
+            type: 'success' // You also can use 'VueNotifications.types.error' instead of 'error'
+        },
+        showErrorMessage: { // You can have any name you want instead of 'showLoginError'
+            title: 'Something went wrong.',
+            message: 'Unexpected Error Occurred',
+            type: 'error' // You also can use 'VueNotifications.types.error' instead of 'error'
+        },
     }
 }

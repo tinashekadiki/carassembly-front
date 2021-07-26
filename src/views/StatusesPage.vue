@@ -4,7 +4,7 @@
     <div class="card-header">Create New Status</div>
     <div class="card-body">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-10">
           <label>Status Name</label>
           <input class="form-control" v-model="status.statusName" placeholder="Status Name">
         </div>
@@ -12,6 +12,17 @@
           <label>Status Color Code</label>
           <input class="form-control" type="color" v-model="status.hexColor" placeholder="Status Name">
         </div>
+
+        <div class="col-md-5">
+          <label>Status Code</label>
+          <input class="form-control" type="text" v-model="status.statusCode" placeholder="Status Name">
+        </div>
+
+        <div class="col-md-5">
+          <label>Status Icon</label>
+          <input class="form-control" type="text" v-model="status.icon" placeholder="Status Name">
+        </div>
+
         <div class="col-md-2 mt-30">
           <button class="btn btn-facebook" @click="saveStatus()">Save Status</button>
         </div>
@@ -33,9 +44,12 @@
           <tbody>
           <tr v-for="status in statusList" :key="status.id">
             <td>{{ status.statusName }}</td>
+            <td>{{ status.statusCode }}</td>
+            <td>
+              <i :class="status.icon"></i>
+            </td>
             <td>
               <div class="color" :style="`background-color: ${status.hexColor};`">
-
               </div>
             </td>
             <td>
@@ -74,6 +88,8 @@ export default {
       status: {
         id: '',
         statusName: '',
+        statusCode: '',
+        icon: '',
         hexColor: ''
       }
     }
@@ -127,21 +143,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  .mt-30{
-    margin-top: 30px;
-  }
+<style>
 
-  .fa {
-    font-size: 16px;
-  }
-
-  .btn{
-    margin-right: 10px;
-  }
-
-  .color{
-    height: 50px;
-    width: 50px;
-  }
 </style>

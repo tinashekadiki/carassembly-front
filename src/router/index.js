@@ -19,6 +19,9 @@ import StatusesPage from "../views/StatusesPage";
 import NewStock from "../views/stocks/NewStock";
 import CustomersPage from "../views/CustomersPage";
 import AdvisorsPage from "../views/AdvisorsPage";
+import ServiceTypePage from "../views/ServiceTypesPage";
+import InvoicesListPage from "../views/InvoicesListPage";
+import InvoicesEditPage from "../views/InvoicesEditPage";
 
 Vue.use(VueRouter)
 
@@ -68,6 +71,27 @@ const routes = [
         name: "BankList",
         component: NewBankDetails
     },
+
+    {
+        path: '/jobCards/serviceTypes',
+        name: "ServiceTypePage",
+        component: ServiceTypePage
+    },
+    {
+        path: '/tax',
+        name: "TaxConfigList",
+        component: TaxConfigList
+    },
+    {
+        path: '/invoices',
+        name: "InvoicesListPage",
+        component: InvoicesListPage
+    },
+    {
+        path: '/invoices/:id',
+        name: "InvoicesEditPage",
+        component: InvoicesEditPage
+    },
     {
         path: '/payments/',
         component: PaymentsLayout,
@@ -93,11 +117,7 @@ const routes = [
                 name: "OrderList",
                 component: OrderList
             },
-            {
-                path: '/tax',
-                name: "TaxConfigList",
-                component: TaxConfigList
-            },
+
             {
                 path: '/orders',
                 name: "NewTax",

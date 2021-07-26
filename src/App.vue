@@ -23,6 +23,22 @@
   .btn-group{
     right: 0;
   }
+  .mt-30{
+    margin-top: 30px;
+  }
+
+  .fa {
+    font-size: 16px;
+  }
+
+  .btn{
+    margin-right: 10px;
+  }
+
+  .color{
+    height: 50px;
+    width: 50px;
+  }
 </style>
 <script>
 
