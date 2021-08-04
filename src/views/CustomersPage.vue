@@ -1,5 +1,5 @@
 <template>
-  <JobCardLayout title="Customers">
+  <MainLayout title="Customers">
     <div class="row">
       <div class="col-md-6">
         <label>Customer Name</label>
@@ -61,18 +61,18 @@
         </tbody>
       </table>
     </div>
-  </JobCardLayout>
+  </MainLayout>
 </template>
 
 <script>
 import {http} from "../utils/http-base";
 import global from "../utils/global";
 import Circle10 from "vue-loading-spinner/src/components/Circle10";
-import JobCardLayout from "../layouts/JobCardLayout";
+import MainLayout from "../layouts/MainLayout";
 export default {
   name: "CustomersPage",
   components: {
-    JobCardLayout,
+    MainLayout,
     Circle10,
   },
   mounted() {
@@ -126,6 +126,14 @@ export default {
           console.log(err)
         }).finally(()=>{
               this.globalLoadingState = false;
+          this.customer = {
+            id:"",
+            corporate: "",
+            customerName: "",
+            mobileNumber: "",
+            alternativeMobileNumber: "",
+            idNumber: ""
+          };
           this.fetchCustomers();
             }
         );

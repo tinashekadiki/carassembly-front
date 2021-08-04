@@ -1,5 +1,5 @@
 <template>
-<JobCardLayout title="Job Card Statuses">
+<MainLayout title="Job Card Statuses">
   <div class="card">
     <div class="card-header">Create New Status</div>
     <div class="card-body">
@@ -68,16 +68,16 @@
     </div>
 
 
-</JobCardLayout>
+</MainLayout>
 </template>
 
 <script>
 import {http} from "../utils/http-base";
 import global from "../utils/global";
-import JobCardLayout from "../layouts/JobCardLayout";
+import MainLayout from "../layouts/MainLayout";
 
 export default {
-  components: {JobCardLayout},
+  components: {MainLayout},
   mixins: [global],
   mounted() {
     this.getAllStatuses();

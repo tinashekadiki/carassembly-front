@@ -1,5 +1,5 @@
 <template>
-  <JobCardLayout title="Service Types">
+  <MainLayout title="Service Types">
     <div class="card">
       <div class="card-header">Create Service Types</div>
       <div class="card-body">
@@ -43,16 +43,16 @@
       </div>
     </div>
 
-  </JobCardLayout>
+  </MainLayout>
 </template>
 
 <script>
-import JobCardLayout from "../layouts/JobCardLayout";
+import MainLayout from "../layouts/MainLayout";
 import global from "../utils/global";
 import {http} from "../utils/http-base";
 export default {
 name: "ServiceTypePage",
-  components: {JobCardLayout},
+  components: {MainLayout},
   mixins:[global],
   data(){
     return {

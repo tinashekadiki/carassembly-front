@@ -3,8 +3,11 @@
     <AppTitle :title="title" :link="newRoute"></AppTitle>
     <div class="c-body">
       <main class="c-main">
-        <div class="container-fluid">
+        <div v-if="!globalLoadingState" class="container-fluid">
           <slot />
+        </div>
+        <div v-if="globalLoadingState" class="container-fluid">
+         <Loader></Loader>
         </div>
       </main>
     </div>
@@ -12,11 +15,14 @@
 </template>
 
 <script>
+import global from "../utils/global";
 import AppTitle from "../components/AppTitle";
+import Loader from "../components/Loader";
 export default {
   props: ['title', 'newRoute'],
-  name: "JobCardLayout",
-  components: {AppTitle}
+  mixins: [global],
+  name: "MainLayout",
+  components: {Loader, AppTitle}
 }
 </script>
 

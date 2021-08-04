@@ -1,20 +1,20 @@
 <template>
-    <JobCardLayout title="Stocks">
+    <MainLayout title="Stocks">
       <NewStock></NewStock>
       <StocksTable></StocksTable>
-    </JobCardLayout>
+    </MainLayout>
 </template>
 
 <script>
 import global from "../utils/global";
-import JobCardLayout from "../layouts/JobCardLayout";
+import MainLayout from "../layouts/MainLayout";
 import NewStock from "./stocks/NewStock";
 import StocksTable from "./stocks/StocksTable";
 
 export default {
   name: "StockPage",
   mixins: [global],
-  components: {StocksTable, NewStock, JobCardLayout},
+  components: {StocksTable, NewStock, MainLayout},
 }
 </script>
 

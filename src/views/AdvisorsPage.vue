@@ -1,5 +1,5 @@
 <template>
-  <JobCardLayout title="Advisors">
+  <MainLayout title="Advisors">
     <div class="row">
       <div class="col-md-6">
         <label>Advisor Name</label>
@@ -49,7 +49,7 @@
       </table>
     </div>
 
-  </JobCardLayout>
+  </MainLayout>
 
 </template>
 
@@ -58,13 +58,13 @@
 import {http} from "../utils/http-base";
 import Circle10 from "vue-loading-spinner/src/components/Circle10";
 import global from "../utils/global";
-import JobCardLayout from "../layouts/JobCardLayout";
+import MainLayout from "../layouts/MainLayout";
 
 export default {
   name: "AdvisorsPage",
   mixins: [global],
   components: {
-    JobCardLayout,
+    MainLayout,
     Circle10,
   },
   mounted() {
@@ -114,6 +114,15 @@ export default {
           console.log(err)
         }).finally(() => {
           this.globalLoadingState = false;
+          this.advisor = {
+            id: '',
+            name: '',
+            surname: '',
+            advisorPost: {
+              postName: ''
+            }
+
+          };
               this.fetchAdvisors()
             }
         );

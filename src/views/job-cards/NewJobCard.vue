@@ -1,5 +1,5 @@
 <template>
-  <JobCardLayout title="Job Cards" new-route="create">
+  <MainLayout title="Job Cards" new-route="create">
     <div class="card">
       <div class="card-header"><strong>New Job Card</strong> <small>Form</small></div>
       <div class="card-body">
@@ -152,21 +152,21 @@
               <div class="form-group">
                 <label>Customer Name</label>
                 <input class="form-control" type="text" placeholder="Input Name"
-                       v-model="jobCard.customer.customerName">
+                       v-model="jobCard.invoice.customer.customerName">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label>Corporate</label>
                 <input class="form-control" type="text" placeholder="Input Corporate"
-                       v-model="jobCard.customer.corporate">
+                       v-model="jobCard.invoice.customer.corporate">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label>ID / License Number</label>
                 <input class="form-control" type="text" placeholder="Input ID number"
-                       v-model="jobCard.customer.idNumber">
+                       v-model="jobCard.invoice.customer.idNumber">
               </div>
             </div>
 
@@ -174,7 +174,7 @@
               <div class="form-group">
                 <label>Mobile Number</label>
                 <input class="form-control" type="text" placeholder="Input Mobile Number"
-                       v-model="jobCard.customer.mobileNumber">
+                       v-model="jobCard.invoice.customer.mobileNumber">
               </div>
             </div>
           </div>
@@ -183,7 +183,7 @@
             <div class="form-group">
               <label>Alternative Mobile Number</label>
               <input class="form-control" type="text" placeholder="Input Mobile Number"
-                     v-model="jobCard.customer.alternativeMobileNumber">
+                     v-model="jobCard.invoice.customer.alternativeMobileNumber">
             </div>
           </div>
         </div>
@@ -265,14 +265,14 @@
         </div>
       </div>
     </div>
-  </JobCardLayout>
+  </MainLayout>
 
 </template>
 
 <script>
 import {http} from "../../utils/http-base";
 import global from "../../utils/global";
-import JobCardLayout from "../../layouts/JobCardLayout";
+import MainLayout from "../../layouts/MainLayout";
 
 export default {
   name: "NewJobCard",
@@ -286,7 +286,7 @@ export default {
     this.retrieveTaxList()
   },
   components: {
-    JobCardLayout
+    MainLayout
   },
   data() {
     return {
@@ -316,13 +316,6 @@ export default {
         deliveryDate: "",
         estimatedDeliveryDate: "",
         insurance: "",
-        customer: {
-          corporate: "",
-          customerName: "",
-          mobileNumber: "",
-          alternativeMobileNumber: "",
-          idNumber: ""
-        },
         vehicle: {
           regNumber: "",
           carType: {
@@ -351,7 +344,15 @@ export default {
           statusName: '',
           id: ''
         },
-        invoice: {}
+        invoice: {
+          customer: {
+            corporate: "",
+            customerName: "",
+            mobileNumber: "",
+            alternativeMobileNumber: "",
+            idNumber: ""
+          },
+        }
       }
     }
   },
@@ -379,7 +380,7 @@ export default {
       if (this.jobCard.id) {
         this.jobCard.invoice.orderParts = this.orderParts;
         http.put(`/job-cards/edit/${this.jobCard.id}`, this.jobCard).then(() => {
-          this.$router.push('/')
+          this.$router.push('/dashboard')
         }).catch(err => {
               console.log(err)
             }
@@ -391,7 +392,7 @@ export default {
         delete this.jobCard.vehicle.attribute.advisor
         delete this.jobCard.vehicle.attribute.serviceType
         http.post('/job-cards/create', this.jobCard).then(() => {
-          this.$router.push('/')
+          this.$router.push('/dashboard')
         }).catch(err => {
               console.log(err)
             }

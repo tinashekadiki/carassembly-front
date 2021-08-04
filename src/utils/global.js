@@ -10,6 +10,7 @@ export default {
             stockPartsList: [],
             orderParts: [],
             serviceTypes: [],
+            banks: []
         }
     },
     methods: {
@@ -72,6 +73,39 @@ export default {
             }).finally(() => {
                 this.globalLoadingState = false;
             })
+        },
+        calculateInvoiceTotal(invoice){
+            let total = 0;
+            if(invoice.orderParts){
+                invoice.orderParts.forEach(element => {
+                    total+=(element.stockPart.price * element.orderQuantity);
+                });
+            }
+            return total;
+        },
+        calculateAmountPaid(invoice){
+            let total = 0;
+            if(invoice.payments){
+                invoice.payments.forEach(element => {
+                    total+=(element.amountPaid)
+                });
+            }
+            return total;
+        },
+        calculateAmountDue(invoice){
+            return this.calculateInvoiceTotal(invoice) - this.calculateAmountPaid(invoice);
+        },
+        fetchAllBanks() {
+            http.get('/bank/list').then(res => {
+                    this.banks = res.data;
+                }
+            ).catch(err => {
+                console.log(err);
+            }).finally()
+        },
+        setEditingMode(bank) {
+            this.editing = true;
+            this.bank = bank;
         }
     },
     notifications: {

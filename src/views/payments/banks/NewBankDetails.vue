@@ -1,10 +1,14 @@
 <template>
-  <PaymentsLayout title="Banks">
+  <MainLayout title="Banks">
     <div>
       <div class="row">
         <div class="col-md-6">
           <label>Bank Name</label>
           <input class="form-control" v-model="bank.bankName" placeholder="Bank Name">
+        </div>
+        <div class="col-md-6">
+          <label>Account Number</label>
+          <input class="form-control" type="number" v-model="bank.accountNumber" placeholder="Account Number">
         </div>
         <div class="col-md-4 mt-4" v-if="!globalLoadingState">
           <button class="btn btn-facebook" @click="crateBank()">Save Bank</button>
@@ -16,12 +20,14 @@
           <thead>
           <tr>
             <th>Bank Name</th>
+            <th>Account Number</th>
             <th>Actions</th>
           </tr>
           </thead>
           <tbody v-if="banks.length">
           <tr v-for="bank in banks" :key="bank.id">
             <td>{{ bank.bankName }}</td>
+            <td>{{ bank.accountNumber }}</td>
             <td>
               <button class="btn btn-success mt-30" @click="setEditingMode(bank)">
                 <i class="fa fa-edit"></i>
@@ -33,20 +39,20 @@
         </table>
       </div>
     </div>
-  </PaymentsLayout>
+  </MainLayout>
 </template>
 
 <script>
 import {http} from "../../../utils/http-base";
 import global from "../../../utils/global";
 import Circle10 from "vue-loading-spinner/src/components/Circle10";
-import PaymentsLayout from "../../../layouts/PaymentsLayout";
+import MainLayout from "../../../layouts/MainLayout";
 
 export default {
   name: "NewBankDetails",
   mixins:[global],
   components: {
-    PaymentsLayout,
+    MainLayout,
     Circle10,
   },
   mounted() {
@@ -56,7 +62,8 @@ export default {
     return {
       bank: {
         id: '',
-        bankName: ''
+        bankName: '',
+        accountNumber: 0
       },
       banks: [],
       editing:false,
@@ -75,7 +82,8 @@ export default {
               this.editing = false;
               this.bank = {
                 id: '',
-                bankName: ''
+                bankName: '',
+                accountNumber: 0
               };
               this.fetchAllBanks();
             }
@@ -88,24 +96,18 @@ export default {
           console.log(err);
         }).finally(() => {
           this.globalLoadingState = false;
+          this.bank = {
+            id: '',
+            bankName: '',
+            accountNumber: 0
+          };
               this.fetchAllBanks();
             }
         );
       }
 
     },
-    fetchAllBanks() {
-      http.get('/bank/list').then(res => {
-            this.banks = res.data;
-          }
-      ).catch(err => {
-        console.log(err);
-      }).finally()
-    },
-    setEditingMode(bank) {
-      this.editing = true;
-      this.bank = bank;
-    }
+
   }
 }
 </script>

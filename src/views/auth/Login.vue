@@ -14,18 +14,18 @@
                     <i class="fa fa-user"></i>
                   </span>
                     </div>
-                    <input class="form-control" type="text" placeholder="Username">
+                    <input v-model="login.username" class="form-control" type="text" placeholder="Username">
                   </div>
                   <div class="input-group mb-4">
                     <div class="input-group-prepend"><span class="input-group-text">
                     <i class="fa fa-lock"></i>
                   </span>
                     </div>
-                    <input class="form-control" type="password" placeholder="Password">
+                    <input v-model="login.password" class="form-control" type="password" placeholder="Password">
                   </div>
                   <div class="row">
                     <div class="col-6">
-                      <router-link class="btn btn-primary px-4 text-white" to="/" type="button">Login</router-link>
+                      <button class="btn btn-primary px-4 text-white" @click="processLogin" type="button">Login</button>
                     </div>
                     <div class="col-6 text-right">
                       <button class="btn btn-link px-0" type="button">Forgot password?</button>
@@ -52,8 +52,31 @@
 </template>
 
 <script>
+import {httpNoAuth} from "../../utils/http-base";
+import global from "../../utils/global";
+
 export default {
-  name: "Login"
+  name: "Login",
+  mixins: [global],
+  data(){
+    return {
+      login: {
+        username: "",
+        password: ""
+      }
+    }
+  },
+  methods: {
+    processLogin(){
+      httpNoAuth.post('user/login', this.login).then(res=>{
+        localStorage.setItem('token', res.data.authToken);
+        this.showSuccessMessage()
+        this.$router.push('/dashboard')
+      }).catch(() => {
+        this.showErrorMessage()
+      })
+    }
+  }
 }
 </script>
 
