@@ -8,13 +8,13 @@
         <i class="fa fa-home"></i> &nbsp; Dashboard</a>
       </li>
       <li class="c-sidebar-nav-title">Components</li>
-      <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="/">
+      <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
         <i class="fa fa-list"></i> &nbsp; Job Cards</a>
         <ul class="c-sidebar-nav-dropdown-items">
-          <li class="c-sidebar-nav-item"><router-link :to="{name: 'NewJobCard'}" class="c-sidebar-nav-link" >New Job Card</router-link></li>
-          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" to="/">Job Cards List</router-link></li>
-          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'StatusesPage'}">Job Cards Statuses</router-link></li>
-          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'ServiceTypePage'}">Service Types</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link :to="{ name: 'NewJobCard' }" class="c-sidebar-nav-link" >New Job Card</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'JobCardTable' }">Job Cards List</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'StatusesPage' }">Job Cards Statuses</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'ServiceTypePage' }">Service Types</router-link></li>
         </ul>
       </li>
       <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
@@ -22,9 +22,7 @@
         <ul class="c-sidebar-nav-dropdown-items">
 <!--          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'BankList'}">Banks</router-link></li>-->
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'NewBankDetails'}">Banks</router-link></li>
-          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'InvoiceList'}"> Invoices</router-link></li>
-          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'EstimateList'}"> Estimates/Quotes</router-link></li>
-          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'OrderList'}"> Orders</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'InvoicesListPage'}"> Invoices</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'TaxConfigList'}"> Configure Tax</router-link></li>
         </ul>
       </li>

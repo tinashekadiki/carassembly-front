@@ -9,7 +9,6 @@ import ViewProfile from "../views/profile/ViewProfile";
 import NewJobCard from "../views/job-cards/NewJobCard";
 import PaymentsLayout from "../layouts/PaymentsLayout";
 import NewBankDetails from "../views/payments/banks/NewBankDetails";
-import InvoiceList from "../views/payments/invoices/InvoiceList";
 import EstimateList from "../views/payments/invoices/EstimateList";
 import OrderList from "../views/payments/orders/OrderList";
 import TaxConfigList from "../views/payments/tax/TaxConfigList";
@@ -27,7 +26,7 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '',
+        path: '/dashboard',
         name: "JobCardTable",
         component: JobCardsPage
     },
@@ -67,12 +66,6 @@ const routes = [
         component: AdvisorsPage
     },
     {
-        path: '/payments/banks',
-        name: "BankList",
-        component: NewBankDetails
-    },
-
-    {
         path: '/jobCards/serviceTypes',
         name: "ServiceTypePage",
         component: ServiceTypePage
@@ -93,20 +86,16 @@ const routes = [
         component: InvoicesEditPage
     },
     {
+        path: 'banks',
+        name: "NewBankDetails",
+        component: NewBankDetails
+    },
+    {
         path: '/payments/',
         component: PaymentsLayout,
         children: [
 
-            {
-                path: 'banks/new',
-                name: "NewBankDetails",
-                component: NewBankDetails
-            },
-            {
-                path: '/invoices',
-                name: "InvoiceList",
-                component: InvoiceList
-            },
+
             {
                 path: '/estimates',
                 name: "EstimateList",
@@ -125,7 +114,7 @@ const routes = [
         ]
     },
     {
-        path: '/login',
+        path: '/',
         name: 'Login',
         component: LoginPage
     },

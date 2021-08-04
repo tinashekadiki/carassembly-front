@@ -1,5 +1,5 @@
 <template>
-  <JobCardLayout title="Tax">
+  <MainLayout title="Tax">
     <div>
       <div class="row">
         <div class="col-md-4">
@@ -51,16 +51,16 @@
         </table>
       </div>
     </div>
-  </JobCardLayout>
+  </MainLayout>
 </template>
 
 <script>
 import global from "../../../utils/global";
 import {http} from "../../../utils/http-base";
-import JobCardLayout from "../../../layouts/JobCardLayout";
+import MainLayout from "../../../layouts/MainLayout";
 
 export default {
-  components: {JobCardLayout},
+  components: {MainLayout},
   mixins: [global],
   mounted() {
     this.retrieveTaxList()
