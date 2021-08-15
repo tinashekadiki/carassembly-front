@@ -8,8 +8,8 @@
         <i class="fa fa-home"></i> &nbsp; Dashboard</a>
       </li>
       <li class="c-sidebar-nav-title">Components</li>
-      <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
-        <i class="fa fa-list"></i> &nbsp; Job Cards</a>
+      <li :class="'c-sidebar-nav-dropdown '+showDropdown" @click="!showDropdown.length ? showDropdown = 'c-show' : showDropdown = ''"><router-link class="c-sidebar-nav-dropdown-toggle"  :to="{ name: 'NewJobCard' }" >
+        <i class="fa fa-list"></i> &nbsp; Job Cards</router-link>
         <ul class="c-sidebar-nav-dropdown-items">
           <li class="c-sidebar-nav-item"><router-link :to="{ name: 'NewJobCard' }" class="c-sidebar-nav-link" >New Job Card</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'JobCardTable' }">Job Cards List</router-link></li>
@@ -17,7 +17,8 @@
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'ServiceTypePage' }">Service Types</router-link></li>
         </ul>
       </li>
-      <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
+      <li :class="'c-sidebar-nav-dropdown '+showDropdownPayments" @click="!showDropdownPayments.length ? showDropdownPayments = 'c-show' : showDropdownPayments = ''">
+        <a class="c-sidebar-nav-dropdown-toggle" href="#">
         <i class="fa fa-credit-card"></i> &nbsp; Payments</a>
         <ul class="c-sidebar-nav-dropdown-items">
 <!--          <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'BankList'}">Banks</router-link></li>-->
@@ -26,14 +27,14 @@
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'TaxConfigList'}"> Configure Tax</router-link></li>
         </ul>
       </li>
-      <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
+      <li :class="'c-sidebar-nav-dropdown '+showDropdownUsers" @click="!showDropdownUsers.length ? showDropdownUsers = 'c-show' : showDropdownUsers = ''"><a class="c-sidebar-nav-dropdown-toggle" href="#">
         <i class="fa fa-users"></i> &nbsp; Users</a>
         <ul class="c-sidebar-nav-dropdown-items">
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link"  :to="{name: 'AdvisorsPage'}"> Advisors</router-link></li>
           <li class="c-sidebar-nav-item"><router-link  :to="{ name: 'CustomersPage'}" class="c-sidebar-nav-link"> Customers</router-link></li>
         </ul>
       </li>
-      <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
+      <li :class="'c-sidebar-nav-dropdown '+showDropdownStock" @click="!showDropdownStock.length ? showDropdownStock = 'c-show' : showDropdownStock = ''"><a class="c-sidebar-nav-dropdown-toggle" href="#">
         <i class="fa fa-list"></i> &nbsp; Stock</a>
         <ul class="c-sidebar-nav-dropdown-items">
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" to="/stocks">List Stock</router-link></li>
@@ -46,7 +47,22 @@
 
 <script>
 export default {
-  name: "CarNav"
+  name: "CarNav",
+  data(){
+    return {
+      showDropdown: '',
+      showDropdownPayments: '',
+      showDropdownUsers: '',
+      showDropdownStock: '',
+    }
+  },
+  methods: {
+    showOptions(){
+      var el = document.getElementsByClassName('c-sidebar-nav-dropdown-items');
+      console.log(el)
+      return el;
+    }
+  }
 }
 </script>
 
