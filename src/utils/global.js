@@ -25,6 +25,11 @@ export default {
                 this.globalLoadingState = false;
             });
         },
+        logOut(){
+            console.log('log out wangu')
+          localStorage.clear()
+          this.$router.push('/')
+        },
         getAllStatuses() {
             this.globalLoadingState = true;
             http.get('status/list').then(res => {
