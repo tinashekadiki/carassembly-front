@@ -53,6 +53,11 @@ import global from "../../utils/global";
 export default {
   name: "Login",
   mixins: [global],
+  mounted() {
+    if(localStorage.getItem('token').length){
+      this.$router.push('dashboard')
+    }
+  },
   data(){
     return {
       login: {
