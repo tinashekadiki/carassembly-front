@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header">Create Service Types</div>
       <div class="card-body">
-        <form class="row">
+        <div class="row">
           <div class="col-md-8">
             <label>Service Type Name</label>
             <input class="form-control" v-model="serviceType.serviceTypeName" placeholder="Service Type Name" required>
@@ -11,7 +11,7 @@
           <div class="col-md-2 mt-30">
             <button class="btn btn-facebook" @click="saveServiceType()">Save Service Type</button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
 
