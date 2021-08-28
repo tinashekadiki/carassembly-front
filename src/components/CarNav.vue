@@ -11,7 +11,7 @@
       <li :class="'c-sidebar-nav-dropdown '+showDropdown" @click="!showDropdown.length ? showDropdown = 'c-show' : showDropdown = ''"><router-link class="c-sidebar-nav-dropdown-toggle"  :to="{ name: 'NewJobCard' }" >
         <i class="fa fa-list"></i> &nbsp; Job Cards</router-link>
         <ul class="c-sidebar-nav-dropdown-items">
-          <li class="c-sidebar-nav-item"><router-link :to="{ name: 'NewJobCard' }" class="c-sidebar-nav-link" >New Job Card</router-link></li>
+          <li class="c-sidebar-nav-item"><router-link :to="{ name: 'NewJobCard' }" class="c-sidebar-nav-link" >New Estimate</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'JobCardTable' }">Job Cards List</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'StatusesPage' }">Job Cards Statuses</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'ServiceTypePage' }">Service Types</router-link></li>

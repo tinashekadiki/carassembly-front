@@ -1,7 +1,7 @@
 <template>
   <MainLayout title="Job Cards" new-route="create">
     <div class="card">
-      <div class="card-header"><strong>New Job Card</strong> <small>Form</small></div>
+      <div class="card-header"><strong>New Estimate</strong> <small>Form</small></div>
       <div class="card-body">
         <div class="row">
           <div class="col-sm-6">
@@ -15,7 +15,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Estimated Date of Delivery</label>
+              <label>Estimated Date of Delivery<span class="mandatory">*</span></label>
               <input v-if="!editing" class="form-control" type="date" v-model="jobCard.estimatedDeliveryDate">
               <p v-else>{{ formatDate(jobCard.estimatedDeliveryDate) }}</p>
             </div>
@@ -43,10 +43,34 @@
         <div class="card-header"><strong>Vehicle</strong> <small>Details</small></div>
         <div class="card-body">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
               <div class="form-group">
-                <label>Vehicle Reg. Number</label>
+                <label>Vehicle Reg. Number <span class="mandatory">*</span></label>
                 <input class="form-control" type="text" placeholder="Input registration number"
+                       v-model="jobCard.vehicle.regNumber">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>VIN<span class="mandatory">*</span></label>
+                <input class="form-control" type="text" placeholder="Input VIN"
+                       v-model="jobCard.vehicle.regNumber">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Engine Number</label>
+                <input class="form-control" type="text" placeholder="Input Engine Number"
+                       v-model="jobCard.vehicle.regNumber">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Variant <span class="mandatory">*</span></label>
+                <input class="form-control" type="text" placeholder="Input Variant"
                        v-model="jobCard.vehicle.regNumber">
               </div>
             </div>
@@ -55,26 +79,26 @@
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">
-                <label>Model</label>
+                <label>Model <span class="mandatory">*</span></label>
                 <input class="form-control" type="text" placeholder="Input Model"
                        v-model="jobCard.vehicle.carType.model">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
-                <label>Make</label>
+                <label>Make <span class="mandatory">*</span></label>
                 <input class="form-control" type="text" placeholder="Input Make" v-model="jobCard.vehicle.carType.make">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
-                <label>Year</label>
+                <label>Year <span class="mandatory">*</span></label>
                 <input class="form-control" type="text" placeholder="Input Year" v-model="jobCard.vehicle.carType.year">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
-                <label>Type</label>
+                <label>Type <span class="mandatory">*</span></label>
                 <select class="form-control" v-model="jobCard.vehicle.carType.type">
                   <option value="null">Select Type</option>
                   <option>Automatic</option>
@@ -102,12 +126,13 @@
                   <option>Pink</option>
                   <option>Yellow</option>
                   <option>Orange</option>
+                  <option>Other</option>
                 </select>
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
-                <label>Fuel Type</label>
+                <label>Fuel Type <span class="mandatory">*</span></label>
                 <select class="form-control" v-model="jobCard.vehicle.attribute.fuelType">
                   <option value="null">Select Fuel Type</option>
                   <option>Petrol</option>
@@ -150,7 +175,7 @@
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">
-                <label>Customer Name</label>
+                <label>Customer Name <span class="mandatory">*</span></label>
                 <input class="form-control" type="text" placeholder="Input Name"
                        v-model="jobCard.invoice.customer.customerName">
               </div>
@@ -162,17 +187,10 @@
                        v-model="jobCard.invoice.customer.corporate">
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>ID / License Number</label>
-                <input class="form-control" type="text" placeholder="Input ID number"
-                       v-model="jobCard.invoice.customer.idNumber">
-              </div>
-            </div>
 
             <div class="col-md-3">
               <div class="form-group">
-                <label>Mobile Number</label>
+                <label>Mobile Number <span class="mandatory">*</span></label>
                 <input class="form-control" type="text" placeholder="Input Mobile Number"
                        v-model="jobCard.invoice.customer.mobileNumber">
               </div>
@@ -408,5 +426,8 @@ export default {
 <style scoped>
   .fa{
     font-size: 16px;
+  }
+  .mandatory{
+    color: red;
   }
 </style>
