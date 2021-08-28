@@ -23,7 +23,8 @@
           </div>
           <div class="row">
             <div class="col-6">
-              <button class="btn btn-primary px-4 text-white" @click="processLogin" type="button">Login</button>
+              <button v-if="!globalLoadingState" class="btn btn-primary px-4 text-white" @click="processLogin" type="button">Login</button>
+              <Loader v-if="globalLoadingState"></Loader>
             </div>
             <div class="col-6 text-right">
               <button class="btn btn-link px-0" type="button">Forgot password?</button>
@@ -49,9 +50,11 @@
 <script>
 import {httpNoAuth} from "../../utils/http-base";
 import global from "../../utils/global";
+import Loader from "../../components/Loader";
 
 export default {
   name: "Login",
+  components: {Loader},
   mixins: [global],
   mounted() {
     if(localStorage.getItem('token').length){
@@ -68,12 +71,15 @@ export default {
   },
   methods: {
     processLogin(){
+      this.globalLoadingState = true;
       httpNoAuth.post('user/login', this.login).then(res=>{
         localStorage.setItem('token', res.data.authToken);
         this.showSuccessMessage()
         this.$router.push('/dashboard')
       }).catch(() => {
         this.showErrorMessage()
+      }).finally(() =>{
+        this.globalLoadingState = false;
       })
     }
   }
