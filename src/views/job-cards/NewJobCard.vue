@@ -273,7 +273,7 @@
 
       <div class="card-body row">
         <div class="col-md-2" v-if="!globalLoadingState">
-          <button class="btn btn-primary" @click="saveJobCard()">Save Job Card</button>
+          <button class="btn btn-primary" @click="saveJobCard()">Save Estimate</button>
         </div>
 
         <div class="col-md-7"></div>
