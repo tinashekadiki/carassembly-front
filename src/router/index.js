@@ -21,6 +21,7 @@ import AdvisorsPage from "../views/AdvisorsPage";
 import ServiceTypePage from "../views/ServiceTypesPage";
 import InvoicesListPage from "../views/InvoicesListPage";
 import InvoicesEditPage from "../views/InvoicesEditPage";
+import CheckListPage from "../views/CheckListPage.vue";
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,7 @@ const routes = [
         name: "NewJobCard",
         component: NewJobCard
     },
+   
     {
         path: '/statuses/',
         name: "StatusesPage",
@@ -139,6 +141,11 @@ const routes = [
         path: '/parts',
         name: 'Parts',
         component: PartsPage
+    },
+    {
+        path: '/checklist',
+        name: 'CheckList',
+        component: CheckListPage
     }
 ]
 

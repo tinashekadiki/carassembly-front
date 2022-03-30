@@ -15,6 +15,7 @@
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'JobCardTable' }">Job Cards List</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'StatusesPage' }">Job Cards Statuses</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'ServiceTypePage' }">Service Types</router-link></li>
+            <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'CheckList' }">Check List</router-link></li>
         </ul>
       </li>
       <li :class="'c-sidebar-nav-dropdown '+showDropdownPayments" @click="!showDropdownPayments.length ? showDropdownPayments = 'c-show' : showDropdownPayments = ''">
