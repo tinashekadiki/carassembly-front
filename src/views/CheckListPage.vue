@@ -35,129 +35,161 @@
                 name="antennaCheckbox"
                 value="Antenna"
                 @change="saveItem()"
+               v-model="item.checkedPart"
+               true-value="Antenna"
               />
               <span style="white-space: pre"> &nbsp;</span>
-              <label for="vehicle1"> Antenna</label><br />
+              <label> Antenna</label><br />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <input
                 type="checkbox"
-                id="antennaCheckbox"
-                name="antennaCheckbox"
+                id="auxcableCheckbox"
+                name="auxcableCheckbox"
                 value="Aux Cable"
+                @change="saveItem()"
+               v-model="item.checkedPart"
+               true-value="Aux Cable"
               />
               <span style="white-space: pre"> &nbsp;</span>
-              <label for="vehicle1"> Aux Cable</label><br />
+              <label> Aux Cable</label><br />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <input
                 type="checkbox"
-                id="antennaCheckbox"
-                name="antennaCheckbox"
+                id="batteryCheckbox"
+                name="batteryCheckbox"
                 value="Battery"
+                @change="saveItem()"
+               v-model="item.checkedPart"
+               true-value="Battery"
               />
               <span style="white-space: pre"> &nbsp;</span>
-              <label for="vehicle1"> Battery</label><br />
+              <label> Battery</label><br />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <input
                 type="checkbox"
-                id="antennaCheckbox"
-                name="antennaCheckbox"
+                id="cdCheckbox"
+                name="cdCheckbox"
                 value="CD"
+                @change="saveItem()"
+               v-model="item.checkedPart"
+               true-value="CD"
               />
               <span style="white-space: pre"> &nbsp;</span>
-              <label for="vehicle1"> CD</label><br />
+              <label> CD</label><br />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <input
                 type="checkbox"
-                id="antennaCheckbox"
-                name="antennaCheckbox"
+                id="chargerCheckbox"
+                name="chargerCheckbox"
                 value="Charger"
+                 @change="saveItem()"
+               v-model="item.checkedPart"
+               true-value="Charger"
               />
               <span style="white-space: pre"> &nbsp;</span>
-              <label for="vehicle1"> Charger</label><br />
+              <label> Charger</label><br />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <input
                 type="checkbox"
-                id="antennaCheckbox"
-                name="antennaCheckbox"
+                id="dashboardIdolCheckbox"
+                name="dashboardIdolCheckbox"
                 value="Dashboard idol"
+                 @change="saveItem()"
+               v-model="item.checkedPart"
+               true-value="Dashboard idol"
               />
               <span style="white-space: pre"> &nbsp;</span>
-              <label for="vehicle1"> Dashboard idol</label><br />
+              <label> Dashboard idol</label><br />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <input
                 type="checkbox"
-                id="antennaCheckbox"
-                name="antennaCheckbox"
+                id="matsCheckbox"
+                name="matsCheckbox"
                 value="Mats"
+                 @change="saveItem()"
+               v-model="item.checkedPart"
+               true-value="Mats"
               />
               <span style="white-space: pre"> &nbsp;</span>
-              <label for="vehicle1"> Mats</label><br />
+              <label> Mats</label><br />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <input
                 type="checkbox"
-                id="antennaCheckbox"
-                name="antennaCheckbox"
+                id="pendriveCheckbox"
+                name="pendriveCheckbox"
                 value="Pendrive"
+                 @change="saveItem()"
+               v-model="item.checkedPart"
+               true-value="Pendrive"
               />
               <span style="white-space: pre"> &nbsp;</span>
-              <label for="vehicle1"> Pendrive</label><br />
+              <label> Pendrive</label><br />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <input
                 type="checkbox"
-                id="antennaCheckbox"
-                name="antennaCheckbox"
-                value="Battery"
+                id="perfumeCheckbox"
+                name="perfumeCheckbox"
+                value="Perfume"
+                 @change="saveItem()"
+               v-model="item.checkedPart"
+               true-value="Perfume"
               />
               <span style="white-space: pre"> &nbsp;</span>
-              <label for="vehicle1"> Perfume</label><br />
+              <label> Perfume</label><br />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <input
                 type="checkbox"
-                id="antennaCheckbox"
-                name="antennaCheckbox"
+                id="reflectorCheckbox"
+                name="reflectorCheckbox"
                 value="Reflector"
+                 @change="saveItem()"
+               v-model="item.checkedPart"
+               true-value="Reflector"
               />
               <span style="white-space: pre"> &nbsp;</span>
-              <label for="vehicle1"> Reflector</label><br />
+              <label> Reflector</label><br />
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <input
                 type="checkbox"
-                id="antennaCheckbox"
-                name="antennaCheckbox"
+                id="seatCoversCheckbox"
+                name="seatCoversCheckbox"
                 value="Seat covers"
+                 @change="saveItem()"
+               v-model="item.checkedPart"
+               true-value="Seat covers"
               />
               <span style="white-space: pre"> &nbsp;</span>
-              <label for="vehicle1"> Seat covers</label><br />
+              <label> Seat covers</label><br />
             </div>
           </div>
         </div>
@@ -294,13 +326,16 @@ export default {
     this.retrieveTaxList();
     this.getVehicles();
     console.log("hie");
+    console.log("chino"+this.y);
   },
   components: {
     MainLayout,
   },
   data() {
     return {
-   
+      item: {
+        "checkedPart": ""
+      },
       x : '',
       onChange(e) {
         
@@ -398,11 +433,9 @@ export default {
       // console.log(e.target.value)
     },
     saveItem() {
-      var requestbody = {
-        "checkedPart": "ANTENNA"
-      }
+      
       http
-        .post(`/checklist/item/check/${this.x}`, requestbody)
+        .post(`/checklist/item/check/${this.x}`, this.item)
         .then((res) => {
           console.log(res);
         })
