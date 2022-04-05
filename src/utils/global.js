@@ -111,7 +111,23 @@ export default {
         setEditingMode(bank) {
             this.editing = true;
             this.bank = bank;
-        }
+        },
+        getVehicles() {
+            this.globalLoadingState = true;
+            http
+              .get("/vehicles/list")
+              .then((res) => {
+                this.vehiclesList = res.data;
+                console.log(this.vehiclesList);
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+              .finally(() => {
+                this.globalLoadingState = false;
+                console.log("ndeipi");
+              });
+          },
     },
     notifications: {
         showSuccessMessage: { // You can have any name you want instead of 'showLoginError'

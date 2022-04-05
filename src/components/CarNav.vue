@@ -15,7 +15,7 @@
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'JobCardTable' }">Job Cards List</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'StatusesPage' }">Job Cards Statuses</router-link></li>
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'ServiceTypePage' }">Service Types</router-link></li>
-            <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'CheckList' }">Check List</router-link></li>
+            <!-- <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'CheckList' }">Check List</router-link></li> -->
         </ul>
       </li>
       <li :class="'c-sidebar-nav-dropdown '+showDropdownPayments" @click="!showDropdownPayments.length ? showDropdownPayments = 'c-show' : showDropdownPayments = ''">
@@ -39,6 +39,12 @@
         <i class="fa fa-list"></i> &nbsp; Stock</a>
         <ul class="c-sidebar-nav-dropdown-items">
           <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" to="/stocks">List Stock</router-link></li>
+        </ul>
+      </li>
+    <li :class="'c-sidebar-nav-dropdown '+showDropdownCheck" @click="!showDropdownCheck.length ? showDropdownCheck = 'c-show' : showDropdownCheck = ''"><a class="c-sidebar-nav-dropdown-toggle" href="#">
+        <i class="fa fa-users"></i> &nbsp; Check List</a>
+        <ul class="c-sidebar-nav-dropdown-items">
+    <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'CheckList' }">Create Check List</router-link></li>
         </ul>
       </li>
     </ul>
