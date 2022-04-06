@@ -67,6 +67,110 @@
               <label> Battery</label><br />
             </div>
           </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="cdCheckbox"
+                name="cdCheckbox"
+                value="CD"
+                @change="saveItem('CD')"
+              />
+              <span style="white-space: pre"> &nbsp;</span>
+              <label> CD</label><br />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="chargerCheckbox"
+                name="chargerCheckbox"
+                value="Charger"
+                @change="saveItem('Charger')"
+              />
+              <span style="white-space: pre"> &nbsp;</span>
+              <label> Charger</label><br />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="dashboardIdolCheckbox"
+                name="dashboardIdolCheckbox"
+                value="dashboardIdol"
+                @change="saveItem('Dashboard Idol')"
+              />
+              <span style="white-space: pre"> &nbsp;</span>
+              <label> Dashboard Idol</label><br />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="matsCheckbox"
+                name="matsCheckbox"
+                value="mats"
+                @change="saveItem('Mats')"
+              />
+              <span style="white-space: pre"> &nbsp;</span>
+              <label> Mats</label><br />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="pendriveCheckbox"
+                name="pendriveCheckbox"
+                value="Pendrive"
+                @change="saveItem('Pendrive')"
+              />
+              <span style="white-space: pre"> &nbsp;</span>
+              <label> Pendrive</label><br />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="perfumeCheckbox"
+                name="perfumeCheckbox"
+                value="Perfume"
+                @change="saveItem('Perfume')"
+              />
+              <span style="white-space: pre"> &nbsp;</span>
+              <label> Perfume</label><br />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="reflectorCheckbox"
+                name="reflectorCheckbox"
+                value="Reflector"
+                @change="saveItem('Reflector')"
+              />
+              <span style="white-space: pre"> &nbsp;</span>
+              <label> Reflector</label><br />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="seatCoversCheckbox"
+                name="seatCoversCheckbox"
+                value="seatCovers"
+                @change="saveItem('Seat Covers')"
+              />
+              <span style="white-space: pre"> &nbsp;</span>
+              <label> Seat Covers</label><br />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -149,6 +253,7 @@ export default {
       http.post('/checklist/item/save/5',
         this.itemsList 
       )
+      this.$router.go()	
       .then((res) => {
         console.log(res)
       }).catch((error) =>{

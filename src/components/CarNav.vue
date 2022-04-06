@@ -42,9 +42,10 @@
         </ul>
       </li>
     <li :class="'c-sidebar-nav-dropdown '+showDropdownCheck" @click="!showDropdownCheck.length ? showDropdownCheck = 'c-show' : showDropdownCheck = ''"><a class="c-sidebar-nav-dropdown-toggle" href="#">
-        <i class="fa fa-users"></i> &nbsp; Check List</a>
+        <i class="fa fa-check-circle-o"></i> &nbsp; Check List</a>
         <ul class="c-sidebar-nav-dropdown-items">
     <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'CheckList' }">Create Check List</router-link></li>
+    <li class="c-sidebar-nav-item"><router-link class="c-sidebar-nav-link" :to="{ name: 'ViewCheckList' }">View Check List</router-link></li>
         </ul>
       </li>
     </ul>

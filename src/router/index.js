@@ -22,6 +22,7 @@ import ServiceTypePage from "../views/ServiceTypesPage";
 import InvoicesListPage from "../views/InvoicesListPage";
 import InvoicesEditPage from "../views/InvoicesEditPage";
 import CheckListPage from "../views/CheckListPage.vue";
+import ViewCheckListPage from "../views/ViewCheckList.vue";
 
 Vue.use(VueRouter)
 
@@ -146,6 +147,11 @@ const routes = [
         path: '/checklist',
         name: 'CheckList',
         component: CheckListPage
+    },
+    {
+        path: '/viewchecklist',
+        name: 'ViewCheckList',
+        component: ViewCheckListPage
     }
 ]
 
