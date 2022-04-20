@@ -12,7 +12,8 @@
           <th>Vehicle</th>
           <th>Arrival Date</th>
           <th>Insurance</th>
-          <th>Actions</th>
+          <th>Edit</th>
+          <th>Download</th>
         </tr>
         </thead>
         <tbody v-if="jobCardList ? jobCardList.length : 0">
@@ -28,6 +29,11 @@
           <td>
             <router-link :to="`/edit/${jobCard.id}`" class="btn btn-success">
               <i class="fa fa-edit"></i>
+            </router-link>
+          </td>
+          <td>
+            <router-link :to="`/DownloadJobCard`" class="btn btn-success">
+              <i class="fa fa-download"></i>
             </router-link>
           </td>
         </tr>
