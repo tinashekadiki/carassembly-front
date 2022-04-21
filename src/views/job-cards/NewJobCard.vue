@@ -269,7 +269,7 @@
                   class="form-control"
                   type="text"
                   placeholder="Input Name"
-                  v-model="jobCard.invoice.customer.customerName"
+                  v-model="jobCard.customer.customerName"
                 />
               </div>
             </div>
@@ -280,7 +280,7 @@
                   class="form-control"
                   type="text"
                   placeholder="Input Corporate"
-                  v-model="jobCard.invoice.customer.corporate"
+                  v-model="jobCard.customer.corporate"
                 />
               </div>
             </div>
@@ -292,7 +292,7 @@
                   class="form-control"
                   type="text"
                   placeholder="Input Mobile Number"
-                  v-model="jobCard.invoice.customer.mobileNumber"
+                  v-model="jobCard.customer.mobileNumber"
                 />
               </div>
             </div>
@@ -305,7 +305,7 @@
                 class="form-control"
                 type="text"
                 placeholder="Input Mobile Number"
-                v-model="jobCard.invoice.customer.alternativeMobileNumber"
+                v-model="jobCard.customer.alternativeMobileNumber"
               />
             </div>
           </div>
@@ -464,7 +464,7 @@ export default {
           carType: {
             model: "",
             make: "",
-            year: 1,
+            year: 2010,
             type: "",
             variant: "",
           },
@@ -487,14 +487,13 @@ export default {
           statusName: "",
           id: "",
         },
-        invoice: {
-          customer: {
-            corporate: "",
-            customerName: "",
-            mobileNumber: "",
-            alternativeMobileNumber: "",
-            idNumber: "",
-          },
+        invoice: {},
+        customer: {
+          corporate: "",
+          customerName: "",
+          mobileNumber: "",
+          alternativeMobileNumber: "",
+          idNumber: "",
         },
       },
     };
@@ -511,7 +510,7 @@ export default {
           .get(`/job-cards/view/${this.$route.params.id}`)
           .then((resp) => {
             this.jobCard = resp.data;
-            console.log(this.jobCard)
+            console.log(this.jobCard);
             this.orderParts = this.jobCard.invoice.orderParts;
           })
           .catch((err) => {
