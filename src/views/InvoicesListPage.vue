@@ -16,7 +16,7 @@
             <td>{{ invoice.id }}</td>
             <td>{{ calculateInvoiceTotal(invoice) }}</td>
             <td>
-              <router-link :to="`/edit/${invoice.id}`" class="btn btn-success">
+              <router-link :to="`/invoices/${invoice.id}`" class="btn btn-success">
                 <i class="fa fa-edit"></i>
               </router-link>
             </td>
