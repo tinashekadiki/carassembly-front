@@ -62,6 +62,7 @@ export default {
       showDropdownPayments: '',
       showDropdownUsers: '',
       showDropdownStock: '',
+      showDropdownCheck: '',
     }
   },
   methods: {
