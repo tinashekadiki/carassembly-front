@@ -76,6 +76,7 @@ export default {
         localStorage.setItem('token', res.data.authToken);
         this.showSuccessMessage()
         this.$router.push('/dashboard')
+        window.location.reload();
       }).catch(() => {
         this.showErrorMessage()
       }).finally(() =>{

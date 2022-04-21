@@ -500,7 +500,7 @@ export default {
         jobCardStatus: "",
         insurance: "",
         customer: {
-          id: 5,
+          id: 0,
           corporate: "",
           customerName: "",
           mobileNumber: "",

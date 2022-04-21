@@ -41,7 +41,7 @@
           <tbody>
             <tr v-for="checkedItem in checkedItemsList" :key="checkedItem.id">
               <td>{{ checkedItem.checkedPart }}</td>
-              <td>{{ checkedItem.conditionGood }}</td>
+              <td>{{ checkedItem.conditionGood ? 'YES': 'NO' }}</td>
             </tr>
           </tbody>
         </table>

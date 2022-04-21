@@ -11,9 +11,17 @@
                   >*</span
                 ></label
               >
-              <select v-model="vehicle" class="form-control" @change="clearItemsList()">
+              <select
+                v-model="vehicle"
+                class="form-control"
+                @change="clearItemsList()"
+              >
                 <option value="">Select Vehicle</option>
-                <option v-for="vehicle in vehiclesList" :key="vehicle.id" :value="vehicle" >
+                <option
+                  v-for="vehicle in vehiclesList"
+                  :key="vehicle.id"
+                  :value="vehicle"
+                >
                   {{ vehicle.regNumber }}
                 </option>
               </select>
@@ -35,7 +43,6 @@
                 name="antennaCheckbox"
                 value="Antenna"
                 @change="saveItem('Antenna')"
-            
               />
               <span style="white-space: pre"> &nbsp;</span>
               <label> Antenna</label><br />
@@ -173,7 +180,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <div class="card-body row">
@@ -211,17 +217,16 @@ export default {
       vehicle: {},
       itemsList: [],
       item: {
-        "checkedPart": ""
+        checkedPart: "",
       },
-      x : '',
-      g : '',
+      x: "",
+      g: "",
       onChange(e) {
-              console.log(e.target.value);
-              this.x = e.target.value;
-          },
+        console.log(e.target.value);
+        this.x = e.target.value;
+      },
       editing: false,
       vehiclesList: [],
-
     };
   },
   methods: {
@@ -231,54 +236,47 @@ export default {
       // console.log(e.target.value)
     },
 
-    clearItemsList(event){
-      console.log("items")
-      this.itemsList = []
-      console.log("items")
-      console.log(event.target.value)
+    clearItemsList(event) {
+      console.log("items");
+      this.itemsList = [];
+      console.log("items");
+      console.log(event.target.value);
     },
     saveItem(e) {
-      
-      this.itemsList.push(
-        {
-            checkedPart: e,
-            conditionGood: true
-        }
-      )
+      this.itemsList.push({
+        checkedPart: e,
+        conditionGood: true,
+      });
       console.log(e);
       console.log(this.vehicle.id);
       console.table(this.itemsList);
     },
-    saveAll(){
-      http.post('/checklist/item/save/5',
-        this.itemsList 
-      )
-      this.$router.go()	
-      .then((res) => {
-        console.log(res)
-      }).catch((error) =>{
-        console.log(error);
-      });
-
+    saveAll() {
+      http
+        .post(`/checklist/item/save/${this.vehicle.id}`, this.itemsList)
+        // this.$router.go()
+        .then((res) => {
+          console.log(res);
+          this.$router.push('viewchecklist');
+          this.showSuccessMessage();
+        })
+        .catch((error) => {
+          console.log(error);
+          this.showErrorMessage();
+        });
     },
-     getCheckedItemsbyRegNumber() {
-
-     http.get(`/checklist/all/${this.x}`)
-      .then((res) => {
-        console.log("checked items");
-        console.log(res);
-      })
-      .catch((error) =>
-      {
-        console.log("get checked items error");
-        console.log(error);
-      })
-      .finally(
-        console.log("checked items endpont")
-      )
-    }
+    // getCheckedItemsbyRegNumber() {
+    //   http
+    //     .get(`/checklist/all/${this.x}`)
+    //     .then(() => {
+    //       this.showSuccessMessage();
+    //     })
+    //     .catch(() => {
+    //       this.showErrorMessage();
+    //     })
+    //     .finally(console.log("checked items endpont"));
+    // },
   },
-   
 };
 </script>
 
