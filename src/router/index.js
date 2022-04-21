@@ -7,6 +7,7 @@ import StockPage from "../views/StockPage";
 import ProfileLayout from "../layouts/ProfileLayout";
 import ViewProfile from "../views/profile/ViewProfile";
 import NewJobCard from "../views/job-cards/NewJobCard";
+import EditJobCard from "../views/job-cards/EditJobCard";
 import PaymentsLayout from "../layouts/PaymentsLayout";
 import NewBankDetails from "../views/payments/banks/NewBankDetails";
 import EstimateList from "../views/payments/invoices/EstimateList";
@@ -36,7 +37,7 @@ const routes = [
     {
         path: '/edit/:id',
         name: "EditJobCard",
-        component: NewJobCard
+        component: EditJobCard
     },
     {
         path: '/create',

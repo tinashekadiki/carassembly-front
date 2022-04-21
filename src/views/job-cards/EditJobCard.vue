@@ -3,8 +3,9 @@
     <div class="card">
       <div class="card-header">
         <strong>New Estimate</strong> <small>Form</small>
+        {{ jobCard }}
       </div>
-      <div class="card-body">
+      <div v-if="Object.keys(jobCard).length" class="card-body">
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
@@ -248,7 +249,7 @@
                     :value="advisor"
                   >
                     {{
-                      `${advisor.name} - ${advisor.surname} - ${advisor.advisorPost.postName}`
+                      `${advisor.advisorName} - ${advisor.surname} - ${advisor.advisorPost.postName}`
                     }}
                   </option>
                 </select>
@@ -269,7 +270,7 @@
                   class="form-control"
                   type="text"
                   placeholder="Input Name"
-                  v-model="jobCard.invoice.customer.customerName"
+                  v-model="jobCard.customer.customerName"
                 />
               </div>
             </div>
@@ -280,7 +281,7 @@
                   class="form-control"
                   type="text"
                   placeholder="Input Corporate"
-                  v-model="jobCard.invoice.customer.corporate"
+                  v-model="jobCard.customer.corporate"
                 />
               </div>
             </div>
@@ -292,7 +293,7 @@
                   class="form-control"
                   type="text"
                   placeholder="Input Mobile Number"
-                  v-model="jobCard.invoice.customer.mobileNumber"
+                  v-model="jobCard.customer.mobileNumber"
                 />
               </div>
             </div>
@@ -305,7 +306,7 @@
                 class="form-control"
                 type="text"
                 placeholder="Input Mobile Number"
-                v-model="jobCard.invoice.customer.alternativeMobileNumber"
+                v-model="jobCard.customer.alternativeMobileNumber"
               />
             </div>
           </div>
@@ -400,7 +401,7 @@
 
         <div class="col-md-7"></div>
 
-        <div class="col-md-3" v-if="editing && this.jobCard.invoice.id">
+        <div class="col-md-3" v-if="editing && Object.keys(jobCard).length">
           <router-link
             :to="`/invoices/${this.jobCard.invoice.id}`"
             class="btn btn-facebook"
@@ -434,6 +435,7 @@ export default {
   data() {
     return {
       editing: false,
+      dataAvailable: false,
       orderParts: [],
       orderPart: {
         stockPart: {
@@ -454,47 +456,55 @@ export default {
         orderQuantity: "",
       },
       jobCard: {
-        jobCardNumber: Date.now().toString(),
-        arrivalDate: "",
-        deliveryDate: "",
-        estimatedDeliveryDate: "",
-        insurance: "",
+        id: "",
+        jobCardNumber: "",
         vehicle: {
+          id: "",
           regNumber: "",
           carType: {
-            model: "",
-            make: "",
-            year: 1,
+            id: "",
             type: "",
-            variant: "",
+            make: "",
+            model: "",
+            year: "",
+            variant: null,
           },
           attribute: {
+            id: "",
             hexColor: "",
             fuelType: "",
             serviceType: {
+              id: "",
               serviceTypeName: "",
             },
             advisor: {
-              name: "",
+              id: "",
+              advisorName: "",
               surname: "",
               advisorPost: {
+                id: "",
                 postName: "",
               },
             },
           },
-        },
-        status: {
-          statusName: "",
-          id: "",
+          checkLists: [],
         },
         invoice: {
-          customer: {
-            corporate: "",
-            customerName: "",
-            mobileNumber: "",
-            alternativeMobileNumber: "",
-            idNumber: "",
-          },
+          id: "",
+          orderParts: [],
+          payments: [],
+        },
+        arrivalDate: "",
+        deliveryDate: "",
+        estimatedDeliveryDate: "",
+        jobCardStatus: "",
+        insurance: "",
+        customer: {
+          id: 5,
+          corporate: "",
+          customerName: "",
+          mobileNumber: "",
+          alternativeMobileNumber: "",
         },
       },
     };
@@ -510,8 +520,11 @@ export default {
         http
           .get(`/job-cards/view/${this.$route.params.id}`)
           .then((resp) => {
+            console.log(resp.data);
+            this.jobCard.arrivalDate = resp.data.arrivalDate;
             this.jobCard = resp.data;
-            console.log(this.jobCard)
+            this.dataAvailable = true;
+            console.log("JobCard", this.jobCard);
             this.orderParts = this.jobCard.invoice.orderParts;
           })
           .catch((err) => {
