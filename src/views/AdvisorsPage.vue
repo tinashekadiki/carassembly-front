@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6">
         <label>Advisor Name</label>
-        <input class="form-control" v-model="advisor.name" placeholder="Advisor Name">
+        <input class="form-control" v-model="advisor.advisorName" placeholder="Advisor Name">
       </div>
       <div class="col-md-6">
         <label>Advisor Surname</label>
@@ -34,7 +34,7 @@
         </thead>
         <tbody v-if="advisorsList.length">
         <tr v-for="advisor in advisorsList" :key="advisor.id">
-          <td>{{ advisor.name }}</td>
+          <td>{{ advisor.advisorName }}</td>
           <td>{{ advisor.surname }}</td>
           <td>{{ advisor.advisorPost.postName }}</td>
           <td>
@@ -74,7 +74,7 @@ export default {
     return {
       advisor: {
         id: '',
-        name: '',
+        advisorName: '',
         surname: '',
         advisorPost: {
           postName: ''

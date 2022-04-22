@@ -22,7 +22,13 @@
 
           <div class="col-md-5">
             <label>Status Icon</label>
-            <input class="form-control" type="text" v-model="status.icon" placeholder="Status Icon">
+            <!-- <input class="form-control" type="text" v-model="status.icon" placeholder="Status Icon"> -->
+            <select v-model="status.icon" class="form-control">
+              <option :value="icon.code" v-for="icon in icons" :key="icon.code">
+              {{icon.name}}
+            </option>
+            </select>
+            
           </div>
 
           <div class="col-md-2 mt-30">
@@ -96,7 +102,29 @@ export default {
         statusCode: '',
         icon: '',
         hexColor: ''
-      }
+      },
+      icons: [
+        {
+          name: 'New',
+          code: 'fa fa-plus'
+        },
+        {
+          name: 'Pending',
+          code: 'fa fa-history'
+        },        
+        {
+          name: 'Done',
+          code: 'fa fa-check'
+        },
+        {
+          name: 'Estimate',
+          code: 'fa fa-hourglass-start'
+        },
+        {
+          name: 'Invoice',
+          code: 'fa fa-file'
+        },
+      ]
     }
   },
   methods: {

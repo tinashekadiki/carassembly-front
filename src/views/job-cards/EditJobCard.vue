@@ -49,7 +49,7 @@
           <div class="col-sm-6" v-if="editing">
             <div class="form-group">
               <label>Job Card Status</label>
-              <select class="form-control" v-model="jobCard.status">
+              <select class="form-control" v-model="jobCard.jobCardStatus">
                 <option value="null">Select Status</option>
                 <option
                   v-for="status in statusList"
@@ -340,7 +340,7 @@
               </tbody>
             </table>
 
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-md-3">
                 <div class="form-group">
                   <label>Stock Part</label>
@@ -355,9 +355,9 @@
                     </option>
                   </select>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="col-md-3">
+              <!-- <div class="col-md-3">
                 <div class="form-group">
                   <label>Tax</label>
                   <select class="form-control" v-model="orderPart.tax">
@@ -369,8 +369,8 @@
                     </option>
                   </select>
                 </div>
-              </div>
-              <div class="col-md-3">
+              </div> -->
+              <!-- <div class="col-md-3">
                 <div class="form-group">
                   <label>Order Quantity</label>
                   <input
@@ -385,8 +385,8 @@
                 <button @click="saveOrderPart()" class="btn btn-success">
                   <i class="fa fa-plus"></i>
                 </button>
-              </div>
-            </div>
+              </div> -->
+            <!-- </div> -->
           </div>
         </div>
       </div>
@@ -435,7 +435,7 @@ export default {
     return {
       editing: false,
       dataAvailable: false,
-      orderParts: [],
+      // orderParts: [],
       orderPart: {
         stockPart: {
           price: "",
@@ -447,11 +447,6 @@ export default {
           quantity: "",
         },
         discount: "",
-        tax: {
-          taxType: "",
-          taxName: "",
-          taxPercentage: "",
-        },
         orderQuantity: "",
       },
       jobCard: {
@@ -490,7 +485,7 @@ export default {
         },
         invoice: {
           id: "",
-          orderParts: [],
+          // orderParts: [],
           payments: [],
         },
         arrivalDate: "",
