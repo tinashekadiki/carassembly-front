@@ -3,7 +3,6 @@
     <div class="card">
       <div class="card-header">
         <strong>New Estimate</strong> <small>Form</small>
-        {{ jobCard }}
       </div>
       <div v-if="Object.keys(jobCard).length" class="card-body">
         <div class="row">

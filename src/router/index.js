@@ -28,8 +28,7 @@ import DownloadJobCardPage from "../views/DownloadJobCardPage.vue"
 
 Vue.use(VueRouter)
 
-const routes = [
-    {
+const routes = [{
         path: '/dashboard',
         name: "JobCardTable",
         component: JobCardsPage
@@ -44,7 +43,7 @@ const routes = [
         name: "NewJobCard",
         component: NewJobCard
     },
-   
+
     {
         path: '/statuses/',
         name: "StatusesPage",
@@ -126,13 +125,11 @@ const routes = [
     {
         path: '/profile',
         component: ProfileLayout,
-        children: [
-            {
-                path: '',
-                name: 'ViewProfile',
-                component: ViewProfile,
-            }
-        ]
+        children: [{
+            path: '',
+            name: 'ViewProfile',
+            component: ViewProfile,
+        }]
     },
     {
         path: '/sell',
@@ -156,7 +153,7 @@ const routes = [
         component: ViewCheckListPage
     },
     {
-        path: '/DownloadJobCard',
+        path: '/DownloadJobCard/:id',
         name: 'DownloadJobCard',
         component: DownloadJobCardPage
     }

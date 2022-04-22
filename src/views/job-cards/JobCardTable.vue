@@ -32,7 +32,7 @@
             </router-link>
           </td>
           <td>
-            <router-link :to="`/DownloadJobCard`" class="btn btn-success">
+            <router-link :to="`/DownloadJobCard/${jobCard.id}`" class="btn btn-success">
               <i class="fa fa-download"></i>
             </router-link>
           </td>
