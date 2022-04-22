@@ -1,5 +1,4 @@
 <template>
-  <main-layout>
     <div class="card">
       <div class="card-header">
         <strong>Stock Part</strong> <small>Details</small>
@@ -72,16 +71,14 @@
         </div>
       </div>
     </div>
-  </main-layout>
 </template>
 
 <script>
 import { http } from "../../utils/http-base";
 import global from "../../utils/global";
-import MainLayout from "../../layouts/MainLayout.vue";
 
 export default {
-  components: { MainLayout },
+  components: {  },
   mixins: [global],
   name: "NewStock",
   data() {
@@ -113,7 +110,6 @@ export default {
         .finally(() => {
           this.globalLoadingState = false;
           this.stockPart = {
-
             price: "",
             partName: "",
             partOrLabour: "",

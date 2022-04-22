@@ -5,24 +5,26 @@
       <div class="card-body">
         <table class="table table-responsive-sm table-striped table-bordered">
           <thead>
-          <tr>
-            <th>Invoice Number</th>
-            <th>Total</th>
-            <th>Actions</th>
-          </tr>
+            <tr>
+              <th>Invoice Number</th>
+              <th>Total</th>
+              <th>Actions</th>
+            </tr>
           </thead>
           <tbody>
-          <tr v-for="invoice in invoicesList" :key="invoice.id">
-            <td>{{ invoice.id }}</td>
-            <td>{{ calculateInvoiceTotal(invoice) }}</td>
-            <td>
-              <router-link :to="`/invoices/${invoice.id}`" class="btn btn-success">
-                <i class="fa fa-edit"></i>
-              </router-link>
-            </td>
-          </tr>
+            <tr v-for="invoice in invoicesList" :key="invoice.id">
+              <td>{{ invoice.id }}</td>
+              <td>{{ calculateInvoiceTotal(invoice) }}</td>
+              <td>
+                <router-link
+                  :to="`/invoices/${invoice.id}`"
+                  class="btn btn-success"
+                >
+                  <i class="fa fa-edit"></i>
+                </router-link>
+              </td>
+            </tr>
           </tbody>
-<!--          <p v-else>No Job Cards Available</p>-->
         </table>
       </div>
     </div>
@@ -32,35 +34,38 @@
 <script>
 import global from "../utils/global";
 import MainLayout from "../layouts/MainLayout";
-import {http} from "../utils/http-base";
+import { http } from "../utils/http-base";
 export default {
   mixins: [global],
   name: "InvoicesListPage",
-  components: {MainLayout},
+  components: { MainLayout },
   mounted() {
     this.getAllInvoices();
   },
-  data(){
+  data() {
     return {
-      invoicesList: []
-    }
+      invoicesList: [],
+    };
   },
   methods: {
-    getAllInvoices(){
+    getAllInvoices() {
       this.globalLoadingState = true;
-      http.get('/invoice/list').then(res => {
-        this.invoicesList = res.data;
-        this.showSuccessMessage();
-      }).catch(() => {
-        this.showErrorMessage();
-      }).finally(() => {
-        this.globalLoadingState = false;
-      })
-    }
-  }
-}
+      http
+        .get("/invoice/list")
+        .then((res) => {
+          this.invoicesList = res.data;
+          this.showSuccessMessage();
+        })
+        .catch(() => {
+          this.showErrorMessage();
+        })
+        .finally(() => {
+          this.globalLoadingState = false;
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 </style>
