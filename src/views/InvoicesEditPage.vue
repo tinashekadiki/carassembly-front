@@ -173,8 +173,8 @@
 import MainLayout from "../layouts/MainLayout";
 import { http } from "../utils/http-base";
 import global from "../utils/global";
-import { saveAs } from "file-saver";
 // import jsPDF from "jspdf";
+import { saveAs } from "file-saver";
 
 export default {
   name: "InvoicesEditPage",
@@ -217,6 +217,7 @@ export default {
     this.retrieveTaxList();
     this.getInvoice();
     this.fetchAllBanks();
+    this.getJobCards();
   },
   methods: {
     getInvoice() {
@@ -300,18 +301,23 @@ export default {
         });
     },
     download() {
-      http
-        .get("/job-cards/users/export/pdf", { responseType: "blob" })
-        .then((response) => {
-          saveAs(response.data, "job-card.pdf");
-        });
+      console.log(this.jobCardsList);
+      let jc = [];
+      jc = this.jobCardsList.data;
+    
+      let id = jc.filter((el) => {
+        if((el.invoice.id = this.invoice.id)){
+          return el.id;
+        }
+      });
 
-      // var pdf = new jsPDF("p", "pt", "a4");
-      // pdf.html(document.getElementById("invoice"), {
-      //   callback: function (pdf) {
-      //     pdf.save("a4.pdf");
-      //   },
-      // });
+      console.log(id);
+
+      http
+        .get(`/job-cards/view/pdf/${id[0].id}`, { responseType: "blob" })
+        .then((response) => {
+          saveAs(response.data, "invoice.pdf");
+        });
     },
   },
 };

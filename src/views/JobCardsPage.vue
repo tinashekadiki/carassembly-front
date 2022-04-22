@@ -10,7 +10,7 @@
 
 import Highlights from "../components/Highlights";
 import JobCardTable from "./job-cards/JobCardTable";
-import {http} from "../utils/http-base";
+// import {http} from "../utils/http-base";
 import Circle10 from "vue-loading-spinner/src/components/Circle10";
 import global from "../utils/global";
 import MainLayout from "../layouts/MainLayout";
@@ -28,18 +28,7 @@ export default {
   name: 'JobCardsPage',
   components: {MainLayout, JobCardTable, Highlights, Circle10},
   methods: {
-    getJobCards(){
-      this.globalLoadingState = true;
-      http.get('/job-cards/list').then(resp => {
-        this.jobCardsList = resp;
-      }).catch(err => {
-            console.log(err)
-          }
-      ).finally(() => {
-        this.globalLoadingState = false;
-        this.getAllStatuses();
-      });
-    }
+    
   }
 }
 </script>

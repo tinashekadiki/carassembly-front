@@ -128,6 +128,18 @@ export default {
                 console.log("ndeipi");
               });
           },
+          getJobCards(){
+            this.globalLoadingState = true;
+            http.get('/job-cards/list').then(resp => {
+              this.jobCardsList = resp;
+            }).catch(err => {
+                  console.log(err)
+                }
+            ).finally(() => {
+              this.globalLoadingState = false;
+              this.getAllStatuses();
+            });
+          }
     },
     notifications: {
         showSuccessMessage: { // You can have any name you want instead of 'showLoginError'
