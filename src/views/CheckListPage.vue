@@ -121,7 +121,7 @@ export default {
         {
           name: "Ashtray",
           value: "Ashtray",
-          imgSrc: require("../assets/antenna.jpeg"),
+          imgSrc: require("../assets/ashtray.jpeg"),
         },
         {
           name: "Aux Cable",
@@ -136,12 +136,12 @@ export default {
         {
           name: "Bonnet",
           value: "Bonnet",
-          imgSrc: require("../assets/battery.png"),
+          imgSrc: require("../assets/bonnet.jpg"),
         },
         {
           name: "Boot",
           value: "Boot",
-          imgSrc: require("../assets/battery.png"),
+          imgSrc: require("../assets/boot.jpg"),
         },
         {
           name: "Badges",
@@ -151,12 +151,12 @@ export default {
         {
           name: "Bumper Front",
           value: "Bumper Front",
-          imgSrc: require("../assets/battery.png"),
+          imgSrc: require("../assets/bumper-front.jpg"),
         },
         {
           name: "Bumper Rear",
           value: "Bumper Rear",
-          imgSrc: require("../assets/battery.png"),
+          imgSrc: require("../assets/bumper-rear.jpg"),
         },
         {
           name: "CD",
@@ -176,27 +176,27 @@ export default {
         {
           name: "Door Front Left",
           value: "Door Front Left",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/door-front-left.jpg"),
         },
         {
           name: "Door Front Right",
           value: "Door Front Right",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/door-front-right.jpg"),
         },
         {
           name: "Door Rear Left",
           value: "Door Rear Left",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/door-rear-left.jpg"),
         },
         {
           name: "Door Rear Right",
           value: "Door Rear Right",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/door-rear-right.jpg"),
         },
         {
           name: "Exhaust",
           value: "Exhaust",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/exhaust.jpg"),
         },
         {
           name: "Fender Front Left",
