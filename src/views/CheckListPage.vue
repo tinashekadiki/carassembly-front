@@ -221,32 +221,32 @@ export default {
         {
           name: "Grill/val",
           value: "Grill/val",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/grill.jpg"),
         },
         {
           name: "Hub Caps",
           value: "Hub Caps",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/hub-caps.jpg"),
         },
         {
           name: "Keys",
           value: "Keys",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/keys.jpg"),
         },
         {
           name: "Lighter",
           value: "Lighter",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/lighter.jpg"),
         },
         {
           name: "Lights Front",
           value: "Lights Front",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/lights-front.jpeg"),
         },
         {
           name: "Lights Rear",
           value: "Lights Rear",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/lights-rear.jpg"),
         },
         {
           name: "Mats",
@@ -266,7 +266,7 @@ export default {
         {
           name: "Petrol Cap",
           value: "Petrol Cap",
-          imgSrc: require("../assets/perfume.jpg"),
+          imgSrc: require("../assets/petrol-cap.jpg"),
         },
         {
           name: "Reflector",
@@ -276,12 +276,12 @@ export default {
         {
           name: "Rear Window",
           value: "Rear Window",
-          imgSrc: require("../assets/reflector.jpg"),
+          imgSrc: require("../assets/rear-window.jpg"),
         },
         {
           name: "Roof",
           value: "Roof",
-          imgSrc: require("../assets/reflector.jpg"),
+          imgSrc: require("../assets/roof.jpeg"),
         },
         {
           name: "Seat Covers",
@@ -291,12 +291,12 @@ export default {
         {
           name: "Speakers",
           value: "Speakers",
-          imgSrc: require("../assets/seat-covers.jpg"),
+          imgSrc: require("../assets/speakers.png"),
         },
         {
           name: "Wheel Tyres",
           value: "Wheel Tyres",
-          imgSrc: require("../assets/seat-covers.jpg"),
+          imgSrc: require("../assets/wheel-tyres.jpg"),
         },
         {
           name: "Wheels Spares",
@@ -306,17 +306,17 @@ export default {
         {
           name: "Windscreen",
           value: "Windscreen",
-          imgSrc: require("../assets/seat-covers.jpg"),
+          imgSrc: require("../assets/windscreen.jpeg"),
         },
         {
           name: "Wing Mirrors",
           value: "Wing Mirrors",
-          imgSrc: require("../assets/seat-covers.jpg"),
+          imgSrc: require("../assets/wing-mirrors.jpeg"),
         },
         {
           name: "Wipers",
           value: "Wipers",
-          imgSrc: require("../assets/seat-covers.jpg"),
+          imgSrc: require("../assets/wipers.jpeg"),
         },
       ],
     };
