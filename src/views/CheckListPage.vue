@@ -33,371 +33,38 @@
       <div class="card-header">
         <strong>Vehicle</strong> <small>Attributes</small>
       </div>
+
       <div class="card-body">
         <div class="form-group">
           <div class="row">
-            <div class="row">
-              <div class="col-4">
-                <input
-                  type="checkbox"
-                  id="antennaCheckbox"
-                  name="antennaCheckbox"
-                  value="Antenna"
-                  @change="saveItem('Antenna')"
-                />
-              </div>
-              <div class="col-4"><label> Antenna</label></div>
-              <div class="col-4">
-                <img src="../assets/antenna.jpeg" width="100" height="100" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <div class="row">
-            <div class="row">
-              <div class="col-4">
-                <input
-                  type="checkbox"
-                  id="auxcableCheckbox"
-                  name="auxcableCheckbox"
-                  value="Aux Cable"
-                  @change="saveItem('Aux Cable')"
-                />
-              </div>
-              <div class="col-4"><label> Aux Cable</label></div>
-              <div class="col-4">
-                <img src="../assets/aux-cable.jpeg" width="100" height="100" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <div class="row">
-            <div class="row">
-              <div class="col-4">
-                <input
-                  type="checkbox"
-                  id="batteryCheckbox"
-                  name="batteryCheckbox"
-                  value="Battery"
-                  @change="saveItem('Battery')"
-                />
-              </div>
-              <div class="col-4"><label> Battery</label></div>
-              <div class="col-4">
-                <img src="../assets/battery.png" width="100" height="100" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <div class="row">
-            <div class="row">
-              <div class="col-4">
-                <input
-                  type="checkbox"
-                  id="cdCheckbox"
-                  name="cdCheckbox"
-                  value="CD"
-                  @change="saveItem('CD')"
-                />
-              </div>
-              <div class="col-4"><label>CD</label></div>
-              <div class="col-4">
-                <img src="../assets/cd.png" width="100" height="100" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <div class="row">
-            <div class="row">
-              <div class="col-4">
-                <input
-                  type="checkbox"
-                  id="chargerCheckbox"
-                  name="chargerCheckbox"
-                  value="Charger"
-                  @change="saveItem('Charger')"
-                />
-              </div>
-              <div class="col-4"><label> Charger</label></div>
-              <div class="col-4">
-                <img src="../assets/charger.jpeg" width="100" height="100" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <div class="row">
-            <div class="row">
-              <div class="col-4">
-                <input
-                  type="checkbox"
-                  id="dashboardIdolCheckbox"
-                  name="dashboardIdolCheckbox"
-                  value="dashboardIdol"
-                  @change="saveItem('Dashboard Idol')"
-                />
-              </div>
-              <div class="col-4"><label> Dashboard Idol</label></div>
-              <div class="col-4">
-                <img
-                  src="../assets/dashboard-idol.jpg"
-                  width="100"
-                  height="100"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <div class="row">
-            <div class="row">
-              <div class="col-4">
-                <input
-                  type="checkbox"
-                  id="matsCheckbox"
-                  name="matsCheckbox"
-                  value="mats"
-                  @change="saveItem('Mats')"
-                />
-              </div>
-              <div class="col-4"><label> Mats</label></div>
-              <div class="col-4">
-                <img src="../assets/mats.jpeg" width="100" height="100" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <div class="row">
-            <div class="row">
-              <div class="col-4">
-                <input
-                  type="checkbox"
-                  id="pendriveCheckbox"
-                  name="pendriveCheckbox"
-                  value="Pendrive"
-                  @change="saveItem('Pendrive')"
-                />
-              </div>
-              <div class="col-4"><label> Pendrive</label></div>
-              <div class="col-4">
-                <img src="../assets/pendrive.jpeg" width="100" height="100" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <div class="row">
-            <div class="row">
-              <div class="col-4">
-                <input
-                  type="checkbox"
-                  id="perfumeCheckbox"
-                  name="perfumeCheckbox"
-                  value="Perfume"
-                  @change="saveItem('Perfume')"
-                />
-              </div>
-              <div class="col-4"><label> Perfume</label></div>
-              <div class="col-4">
-                <img src="../assets/perfume.jpg" width="100" height="100" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <div class="row">
-            <div class="row">
-              <div class="col-4">
-                <input
-                  type="checkbox"
-                  id="reflectorCheckbox"
-                  name="reflectorCheckbox"
-                  value="Reflector"
-                  @change="saveItem('Reflector')"
-                />
-              </div>
-              <div class="col-4"><label>Reflector</label></div>
-              <div class="col-4">
-                <img src="../assets/reflector.jpg" width="100" height="100" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <div class="row">
-            <div class="row">
+            <div
+              class="col-6 row"
+              v-for="checkListItem in checkListItems"
+              :key="checkListItem.name"
+            >
+            
+            
+              <!-- <div class="row"> -->
               <div class="col-4">
                 <input
                   type="checkbox"
                   id="seatCoversCheckbox"
                   name="seatCoversCheckbox"
                   value="seatCovers"
-                  @change="saveItem('Seat Covers')"
+                  @change="saveItem(checkListItem.value)"
                 />
               </div>
-              <div class="col-4"><label> Seat Covers</label></div>
               <div class="col-4">
-                <img src="../assets/seat-covers.jpg" width="100" height="100" />
+                <label> {{ checkListItem.name }}</label>
+              </div>
+              <div class="col-4">
+                <img :src="checkListItem.imgSrc" width="100" height="100" />
+                <!-- </div> -->
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- <div class="col-md-3">
-        <div class="form-group">
-          <input
-            type="checkbox"
-            id="auxcableCheckbox"
-            name="auxcableCheckbox"
-            value="Aux Cable"
-            @change="saveItem('Aux Cable')"
-          />
-          <span style="white-space: pre"> &nbsp;</span>
-          <label> Aux Cable</label><br />
-        </div>
-      </div> -->
-      <!-- <div class="col-md-3">
-        <div class="form-group">
-          <input
-            type="checkbox"
-            id="batteryCheckbox"
-            name="batteryCheckbox"
-            value="Battery"
-            @change="saveItem('Battery')"
-          />
-          <span style="white-space: pre"> &nbsp;</span>
-          <label> Battery</label><br />
-        </div>
-      </div> -->
-      <!-- <div class="col-md-3">
-        <div class="form-group">
-          <input
-            type="checkbox"
-            id="cdCheckbox"
-            name="cdCheckbox"
-            value="CD"
-            @change="saveItem('CD')"
-          />
-          <span style="white-space: pre"> &nbsp;</span>
-          <label> CD</label><br />
-        </div>
-      </div> -->
-      <!-- <div class="col-md-3">
-        <div class="form-group">
-          <input
-            type="checkbox"
-            id="chargerCheckbox"
-            name="chargerCheckbox"
-            value="Charger"
-            @change="saveItem('Charger')"
-          />
-          <span style="white-space: pre"> &nbsp;</span>
-          <label> Charger</label><br />
-        </div>
-      </div> -->
-      <!-- <div class="col-md-3">
-        <div class="form-group">
-          <input
-            type="checkbox"
-            id="dashboardIdolCheckbox"
-            name="dashboardIdolCheckbox"
-            value="dashboardIdol"
-            @change="saveItem('Dashboard Idol')"
-          />
-          <span style="white-space: pre"> &nbsp;</span>
-          <label> Dashboard Idol</label><br />
-        </div>
-      </div> -->
-      <!-- <div class="col-md-3">
-        <div class="form-group">
-          <input
-            type="checkbox"
-            id="matsCheckbox"
-            name="matsCheckbox"
-            value="mats"
-            @change="saveItem('Mats')"
-          />
-          <span style="white-space: pre"> &nbsp;</span>
-          <label> Mats</label><br />
-        </div>
-      </div> -->
-      <!-- <div class="col-md-3">
-        <div class="form-group">
-          <input
-            type="checkbox"
-            id="pendriveCheckbox"
-            name="pendriveCheckbox"
-            value="Pendrive"
-            @change="saveItem('Pendrive')"
-          />
-          <span style="white-space: pre"> &nbsp;</span>
-          <label> Pendrive</label><br />
-        </div>
-      </div> -->
-      <!-- <div class="col-md-3">
-        <div class="form-group">
-          <input
-            type="checkbox"
-            id="perfumeCheckbox"
-            name="perfumeCheckbox"
-            value="Perfume"
-            @change="saveItem('Perfume')"
-          />
-          <span style="white-space: pre"> &nbsp;</span>
-          <label> Perfume</label><br />
-        </div>
-      </div> -->
-      <!-- <div class="col-md-3">
-        <div class="form-group">
-          <input
-            type="checkbox"
-            id="reflectorCheckbox"
-            name="reflectorCheckbox"
-            value="Reflector"
-            @change="saveItem('Reflector')"
-          />
-          <span style="white-space: pre"> &nbsp;</span>
-          <label> Reflector</label><br />
-        </div>
-      </div> -->
-      <!-- <div class="col-md-3">
-        <div class="form-group">
-          <input
-            type="checkbox"
-            id="seatCoversCheckbox"
-            name="seatCoversCheckbox"
-            value="seatCovers"
-            @change="saveItem('Seat Covers')"
-          />
-          <span style="white-space: pre"> &nbsp;</span>
-          <label> Seat Covers</label><br />
-        </div>
-      </div> -->
     </div>
 
     <div class="card-body row">
@@ -445,6 +112,213 @@ export default {
       },
       editing: false,
       vehiclesList: [],
+      checkListItems: [
+        {
+          name: "Antenna",
+          value: "Antenna",
+          imgSrc: require("../assets/antenna.jpeg"),
+        },
+        {
+          name: "Ashtray",
+          value: "Ashtray",
+          imgSrc: require("../assets/antenna.jpeg"),
+        },
+        {
+          name: "Aux Cable",
+          value: "Aux Cable",
+          imgSrc: require("../assets/aux-cable.jpeg"),
+        },
+        {
+          name: "Battery",
+          value: "Battery",
+          imgSrc: require("../assets/battery.png"),
+        },
+        {
+          name: "Bonnet",
+          value: "Bonnet",
+          imgSrc: require("../assets/battery.png"),
+        },
+        {
+          name: "Boot",
+          value: "Boot",
+          imgSrc: require("../assets/battery.png"),
+        },
+        {
+          name: "Badges",
+          value: "Badges",
+          imgSrc: require("../assets/battery.png"),
+        },
+        {
+          name: "Bumper Front",
+          value: "Bumper Front",
+          imgSrc: require("../assets/battery.png"),
+        },
+        {
+          name: "Bumper Rear",
+          value: "Bumper Rear",
+          imgSrc: require("../assets/battery.png"),
+        },
+        {
+          name: "CD",
+          value: "CD",
+          imgSrc: require("../assets/cd.png"),
+        },
+        {
+          name: "Charger",
+          value: "Charger",
+          imgSrc: require("../assets/charger.jpeg"),
+        },
+        {
+          name: "Dashboard Idol",
+          value: "Dashboard Idol",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Door Front Left",
+          value: "Door Front Left",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Door Front Right",
+          value: "Door Front Right",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Door Rear Left",
+          value: "Door Rear Left",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Door Rear Right",
+          value: "Door Rear Right",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Exhaust",
+          value: "Exhaust",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Fender Front Left",
+          value: "Fender Front Left",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Fender Front Right",
+          value: "Fender Front Right",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Fender Rear Left",
+          value: "Fender Rear Left",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Fender Rear Right",
+          value: "Fender Rear Right",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Grill/val",
+          value: "Grill/val",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Hub Caps",
+          value: "Hub Caps",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Keys",
+          value: "Keys",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Lighter",
+          value: "Lighter",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Lights Front",
+          value: "Lights Front",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Lights Rear",
+          value: "Lights Rear",
+          imgSrc: require("../assets/dashboard-idol.jpg"),
+        },
+        {
+          name: "Mats",
+          value: "Mats",
+          imgSrc: require("../assets/mats.jpeg"),
+        },
+        {
+          name: "Pendrive",
+          value: "Pendrive",
+          imgSrc: require("../assets/pendrive.jpeg"),
+        },
+        {
+          name: "Perfume",
+          value: "Perfume",
+          imgSrc: require("../assets/perfume.jpg"),
+        },
+        {
+          name: "Petrol Cap",
+          value: "Petrol Cap",
+          imgSrc: require("../assets/perfume.jpg"),
+        },
+        {
+          name: "Reflector",
+          value: "Reflector",
+          imgSrc: require("../assets/reflector.jpg"),
+        },
+        {
+          name: "Rear Window",
+          value: "Rear Window",
+          imgSrc: require("../assets/reflector.jpg"),
+        },
+        {
+          name: "Roof",
+          value: "Roof",
+          imgSrc: require("../assets/reflector.jpg"),
+        },
+        {
+          name: "Seat Covers",
+          value: "Seat Covers",
+          imgSrc: require("../assets/seat-covers.jpg"),
+        },
+        {
+          name: "Speakers",
+          value: "Speakers",
+          imgSrc: require("../assets/seat-covers.jpg"),
+        },
+        {
+          name: "Wheel Tyres",
+          value: "Wheel Tyres",
+          imgSrc: require("../assets/seat-covers.jpg"),
+        },
+        {
+          name: "Wheels Spares",
+          value: "Wheels Spares",
+          imgSrc: require("../assets/seat-covers.jpg"),
+        },
+        {
+          name: "Windscreen",
+          value: "Windscreen",
+          imgSrc: require("../assets/seat-covers.jpg"),
+        },
+        {
+          name: "Wing Mirrors",
+          value: "Wing Mirrors",
+          imgSrc: require("../assets/seat-covers.jpg"),
+        },
+        {
+          name: "Wipers",
+          value: "Wipers",
+          imgSrc: require("../assets/seat-covers.jpg"),
+        },
+      ],
     };
   },
   methods: {
