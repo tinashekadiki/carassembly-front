@@ -48,9 +48,113 @@
               </div>
               <div class="col-4"><label> Antenna</label></div>
               <div class="col-4">
+                <img src="../assets/antenna.jpeg" width="100" height="100" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="row">
+              <div class="col-4">
+                <input
+                  type="checkbox"
+                  id="auxcableCheckbox"
+                  name="auxcableCheckbox"
+                  value="Aux Cable"
+                  @change="saveItem('Aux Cable')"
+                />
+              </div>
+              <div class="col-4"><label> Aux Cable</label></div>
+              <div class="col-4">
+                <img src="../assets/aux-cable.jpeg" width="100" height="100" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="row">
+              <div class="col-4">
+                <input
+                  type="checkbox"
+                  id="batteryCheckbox"
+                  name="batteryCheckbox"
+                  value="Battery"
+                  @change="saveItem('Battery')"
+                />
+              </div>
+              <div class="col-4"><label> Battery</label></div>
+              <div class="col-4">
+                <img src="../assets/battery.png" width="100" height="100" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="row">
+              <div class="col-4">
+                <input
+                  type="checkbox"
+                  id="cdCheckbox"
+                  name="cdCheckbox"
+                  value="CD"
+                  @change="saveItem('CD')"
+                />
+              </div>
+              <div class="col-4"><label>CD</label></div>
+              <div class="col-4">
+                <img src="../assets/cd.png" width="100" height="100" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="row">
+              <div class="col-4">
+                <input
+                  type="checkbox"
+                  id="chargerCheckbox"
+                  name="chargerCheckbox"
+                  value="Charger"
+                  @change="saveItem('Charger')"
+                />
+              </div>
+              <div class="col-4"><label> Charger</label></div>
+              <div class="col-4">
+                <img src="../assets/charger.jpeg" width="100" height="100" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="row">
+              <div class="col-4">
+                <input
+                  type="checkbox"
+                  id="dashboardIdolCheckbox"
+                  name="dashboardIdolCheckbox"
+                  value="dashboardIdol"
+                  @change="saveItem('Dashboard Idol')"
+                />
+              </div>
+              <div class="col-4"><label> Dashboard Idol</label></div>
+              <div class="col-4">
                 <img
-                  @click="saveItem('Antenna')"
-                  src="../assets/antenna.jpeg"
+                  src="../assets/dashboard-idol.jpg"
                   width="100"
                   height="100"
                 />
@@ -59,7 +163,112 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="card-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="row">
+              <div class="col-4">
+                <input
+                  type="checkbox"
+                  id="matsCheckbox"
+                  name="matsCheckbox"
+                  value="mats"
+                  @change="saveItem('Mats')"
+                />
+              </div>
+              <div class="col-4"><label> Mats</label></div>
+              <div class="col-4">
+                <img src="../assets/mats.jpeg" width="100" height="100" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="row">
+              <div class="col-4">
+                <input
+                  type="checkbox"
+                  id="pendriveCheckbox"
+                  name="pendriveCheckbox"
+                  value="Pendrive"
+                  @change="saveItem('Pendrive')"
+                />
+              </div>
+              <div class="col-4"><label> Pendrive</label></div>
+              <div class="col-4">
+                <img src="../assets/pendrive.jpeg" width="100" height="100" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="row">
+              <div class="col-4">
+                <input
+                  type="checkbox"
+                  id="perfumeCheckbox"
+                  name="perfumeCheckbox"
+                  value="Perfume"
+                  @change="saveItem('Perfume')"
+                />
+              </div>
+              <div class="col-4"><label> Perfume</label></div>
+              <div class="col-4">
+                <img src="../assets/perfume.jpg" width="100" height="100" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="row">
+              <div class="col-4">
+                <input
+                  type="checkbox"
+                  id="reflectorCheckbox"
+                  name="reflectorCheckbox"
+                  value="Reflector"
+                  @change="saveItem('Reflector')"
+                />
+              </div>
+              <div class="col-4"><label>Reflector</label></div>
+              <div class="col-4">
+                <img src="../assets/reflector.jpg" width="100" height="100" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="row">
+              <div class="col-4">
+                <input
+                  type="checkbox"
+                  id="seatCoversCheckbox"
+                  name="seatCoversCheckbox"
+                  value="seatCovers"
+                  @change="saveItem('Seat Covers')"
+                />
+              </div>
+              <div class="col-4"><label> Seat Covers</label></div>
+              <div class="col-4">
+                <img src="../assets/seat-covers.jpg" width="100" height="100" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-md-3">
         <div class="form-group">
           <input
             type="checkbox"
@@ -71,8 +280,8 @@
           <span style="white-space: pre"> &nbsp;</span>
           <label> Aux Cable</label><br />
         </div>
-      </div>
-      <div class="col-md-3">
+      </div> -->
+      <!-- <div class="col-md-3">
         <div class="form-group">
           <input
             type="checkbox"
@@ -84,8 +293,8 @@
           <span style="white-space: pre"> &nbsp;</span>
           <label> Battery</label><br />
         </div>
-      </div>
-      <div class="col-md-3">
+      </div> -->
+      <!-- <div class="col-md-3">
         <div class="form-group">
           <input
             type="checkbox"
@@ -97,8 +306,8 @@
           <span style="white-space: pre"> &nbsp;</span>
           <label> CD</label><br />
         </div>
-      </div>
-      <div class="col-md-3">
+      </div> -->
+      <!-- <div class="col-md-3">
         <div class="form-group">
           <input
             type="checkbox"
@@ -110,8 +319,8 @@
           <span style="white-space: pre"> &nbsp;</span>
           <label> Charger</label><br />
         </div>
-      </div>
-      <div class="col-md-3">
+      </div> -->
+      <!-- <div class="col-md-3">
         <div class="form-group">
           <input
             type="checkbox"
@@ -123,8 +332,8 @@
           <span style="white-space: pre"> &nbsp;</span>
           <label> Dashboard Idol</label><br />
         </div>
-      </div>
-      <div class="col-md-3">
+      </div> -->
+      <!-- <div class="col-md-3">
         <div class="form-group">
           <input
             type="checkbox"
@@ -136,8 +345,8 @@
           <span style="white-space: pre"> &nbsp;</span>
           <label> Mats</label><br />
         </div>
-      </div>
-      <div class="col-md-3">
+      </div> -->
+      <!-- <div class="col-md-3">
         <div class="form-group">
           <input
             type="checkbox"
@@ -149,8 +358,8 @@
           <span style="white-space: pre"> &nbsp;</span>
           <label> Pendrive</label><br />
         </div>
-      </div>
-      <div class="col-md-3">
+      </div> -->
+      <!-- <div class="col-md-3">
         <div class="form-group">
           <input
             type="checkbox"
@@ -162,8 +371,8 @@
           <span style="white-space: pre"> &nbsp;</span>
           <label> Perfume</label><br />
         </div>
-      </div>
-      <div class="col-md-3">
+      </div> -->
+      <!-- <div class="col-md-3">
         <div class="form-group">
           <input
             type="checkbox"
@@ -175,8 +384,8 @@
           <span style="white-space: pre"> &nbsp;</span>
           <label> Reflector</label><br />
         </div>
-      </div>
-      <div class="col-md-3">
+      </div> -->
+      <!-- <div class="col-md-3">
         <div class="form-group">
           <input
             type="checkbox"
@@ -188,7 +397,7 @@
           <span style="white-space: pre"> &nbsp;</span>
           <label> Seat Covers</label><br />
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="card-body row">
