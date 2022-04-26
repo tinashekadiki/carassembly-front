@@ -304,19 +304,21 @@ export default {
       console.log(this.jobCardsList);
       let jc = [];
       jc = this.jobCardsList.data;
-    
+      let acId = 0;
+      console.log('invoice', this.invoice);
       let id = jc.filter((el) => {
-        if((el.invoice.id = this.invoice.id)){
+        if((el.invoice.id === this.invoice.id)){
+          acId = el.id;
           return el.id;
         }
       });
-
       console.log(id);
+      console.log(acId);
 
       http
-        .get(`/job-cards/view/pdf/${id[0].id}`, { responseType: "blob" })
+        .get(`/job-cards/view/pdf/${acId}`, { responseType: "blob" })
         .then((response) => {
-          saveAs(response.data, "invoice.pdf");
+          saveAs(response.data, `invoice - ${this.invoice.id}.pdf`);
         });
     },
   },

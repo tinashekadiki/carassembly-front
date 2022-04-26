@@ -7,6 +7,7 @@
           <thead>
             <tr>
               <th>Invoice Number</th>
+              <th>Customer</th>
               <th>Total</th>
               <th>Actions</th>
             </tr>
@@ -14,6 +15,7 @@
           <tbody>
             <tr v-for="invoice in invoicesList" :key="invoice.id">
               <td>{{ invoice.id }}</td>
+              <td>{{ invoice.customer.customerName }}</td>
               <td>{{ calculateInvoiceTotal(invoice) }}</td>
               <td>
                 <router-link
@@ -40,7 +42,9 @@ export default {
   name: "InvoicesListPage",
   components: { MainLayout },
   mounted() {
-    this.getAllInvoices();
+    this.getJobCards().then(() => {
+      this.getAllInvoices();
+    })
   },
   data() {
     return {
@@ -54,6 +58,11 @@ export default {
         .get("/invoice/list")
         .then((res) => {
           this.invoicesList = res.data;
+          console.log('first',this.invoicesList);
+          this.invoicesList.forEach(el => {
+            el.customer = this.getCustomer(el.id)
+          });
+          console.log('sec',this.invoicesList);
           this.showSuccessMessage();
         })
         .catch(() => {
@@ -63,6 +72,18 @@ export default {
           this.globalLoadingState = false;
         });
     },
+
+    getCustomer(invoiceId){
+      console.log(invoiceId, this.jobCardsList.data);
+      let customer = {customerName : "No Customer Details"};
+      this.jobCardsList.data.forEach(el => {
+        if(el.invoice.id === invoiceId){
+          console.log(el.customer);
+          customer = el.customer;
+        }
+      });
+      return customer;
+    }
   },
 };
 </script>

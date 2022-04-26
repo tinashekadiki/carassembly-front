@@ -130,7 +130,7 @@ export default {
           },
           getJobCards(){
             this.globalLoadingState = true;
-            http.get('/job-cards/list').then(resp => {
+            return http.get('/job-cards/list').then(resp => {
               this.jobCardsList = resp;
             }).catch(err => {
                   console.log(err)

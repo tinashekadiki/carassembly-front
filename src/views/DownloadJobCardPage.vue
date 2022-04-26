@@ -59,7 +59,7 @@ export default {
       http
         .get(`/job-cards/printJobCard/${this.$route.params.id}`, { responseType: "blob" })
         .then((response) => {
-          saveAs(response.data, "job-card.pdf");
+          saveAs(response.data, `job-card - ${this.$route.params.id}.pdf`);
         });
     },
 
