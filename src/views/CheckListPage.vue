@@ -201,22 +201,22 @@ export default {
         {
           name: "Fender Front Left",
           value: "Fender Front Left",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/fender-front-left.jpeg"),
         },
         {
           name: "Fender Front Right",
           value: "Fender Front Right",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/fender-front-right.jpg"),
         },
         {
           name: "Fender Rear Left",
           value: "Fender Rear Left",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/fender-front-left.jpeg"),
         },
         {
           name: "Fender Rear Right",
           value: "Fender Rear Right",
-          imgSrc: require("../assets/dashboard-idol.jpg"),
+          imgSrc: require("../assets/fender-front-right.jpg"),
         },
         {
           name: "Grill/val",
