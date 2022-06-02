@@ -487,7 +487,11 @@ export default {
           statusName: "",
           id: "",
         },
-        invoice: {},
+        invoice: {
+          id: "",
+          orderParts: [],
+          payments: [],
+        },
         customer: {
           corporate: "",
           customerName: "",
@@ -542,8 +546,9 @@ export default {
         delete this.jobCard.vehicle.attribute.serviceType;
         http
           .post("/job-cards/create", this.jobCard)
-          .then(() => {
-            this.$router.push("/dashboard");
+          .then((res) => {
+            let id = res.data.invoice.id;
+            this.$router.push(`/invoices/${id}`);
           })
           .catch((err) => {
             console.log(err);
