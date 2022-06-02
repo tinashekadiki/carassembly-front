@@ -42,16 +42,14 @@
               v-for="checkListItem in checkListItems"
               :key="checkListItem.name"
             >
-            
-            
-              <!-- <div class="row"> -->
+              <!-- <div class="row"> @change="saveItem(checkListItem.value)" -->
               <div class="col-4">
                 <input
                   type="checkbox"
                   id="seatCoversCheckbox"
                   name="seatCoversCheckbox"
                   value="seatCovers"
-                  @change="saveItem(checkListItem.value)"
+                  
                 />
               </div>
               <div class="col-4">
@@ -59,7 +57,10 @@
               </div>
               <div class="col-4">
                 <img :src="checkListItem.imgSrc" width="100" height="100" />
-                <!-- </div> -->
+                <label>
+                  Take Picture
+                  <input @change="uploadImage($event, checkListItem.value)" type="file" accept="image/*" capture />
+                </label>
               </div>
             </div>
           </div>
@@ -328,6 +329,26 @@ export default {
       // console.log(e.target.value)
     },
 
+    uploadImage(event, data) {
+      console.log(event, data);
+      let formData = new FormData();
+      formData.append("file", event.target.files[0]);
+      return http
+        .post("/checklist/upload", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          this.itemsList.push({
+            checkedPart: data,
+            conditionGood: true,
+            imgSrc: res
+          });
+        });
+    },
+
     clearItemsList(event) {
       console.log("items");
       this.itemsList = [];
@@ -339,9 +360,6 @@ export default {
         checkedPart: e,
         conditionGood: true,
       });
-      console.log(e);
-      console.log(this.vehicle.id);
-      console.table(this.itemsList);
     },
     saveAll() {
       http
@@ -357,17 +375,6 @@ export default {
           this.showErrorMessage();
         });
     },
-    // getCheckedItemsbyRegNumber() {
-    //   http
-    //     .get(`/checklist/all/${this.x}`)
-    //     .then(() => {
-    //       this.showSuccessMessage();
-    //     })
-    //     .catch(() => {
-    //       this.showErrorMessage();
-    //     })
-    //     .finally(console.log("checked items endpont"));
-    // },
   },
 };
 </script>

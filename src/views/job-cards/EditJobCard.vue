@@ -310,8 +310,6 @@
             </div>
           </div>
         </div>
-
-        
       </div>
 
       <div class="card-body row">
@@ -456,6 +454,7 @@ export default {
       this.globalLoadingState = true;
       if (this.jobCard.id) {
         this.jobCard.invoice.orderParts = this.orderParts;
+        // delete this.jobCard.vehicle;
         http
           .put(`/job-cards/edit/${this.jobCard.id}`, this.jobCard)
           .then(() => {
