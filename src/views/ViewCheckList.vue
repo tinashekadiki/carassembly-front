@@ -36,14 +36,22 @@
             <tr>
               <th>Checked Part</th>
               <th>Is Condition Good?</th>
+              <th>Image</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="checkedItem in checkedItemsList" :key="checkedItem.id">
               <td>{{ checkedItem.checkedPart }}</td>
               <td>{{ checkedItem.conditionGood ? 'YES': 'NO' }}</td>
+              <td>
+                <img 
+                height="50"
+                width="50"
+                :src="checkedItem.imageUrl">
+              </td>
             </tr>
           </tbody>
+         
         </table>
       </div>
     </div>
@@ -126,6 +134,7 @@ export default {
         .get(`/checklist/all/${this.x}`)
         .then((res) => {
           console.log("checked items");
+          
           console.log(res);
           this.checkedItemsList = res.data
         })
