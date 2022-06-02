@@ -20,6 +20,19 @@
                 </select>
               </div>
             </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                >
+                  Create Stock Part
+
+                </button>
+              </div>
+            </div>
 
             <div class="col-md-12">
               <div class="form-group">
@@ -166,6 +179,122 @@
         </div>
       </div>
     </div>
+
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="card">
+              <div class="card-header">
+                <strong>Stock Part</strong> <small>Details</small>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Part Name</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        placeholder="Input Name"
+                        v-model="stockPart.partName"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Price</label>
+                      <input
+                        class="form-control"
+                        type="number"
+                        v-model="stockPart.price"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Labour</label>
+                      <select
+                        v-model="stockPart.partOrLabour"
+                        class="form-control"
+                      >
+                        <option selected>Select true if Labour</option>
+                        <option>True</option>
+                        <option>False</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>QoH</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        v-model="stockPart.qoH"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Average Purchase Price</label>
+                      <input
+                        class="form-control"
+                        type="number"
+                        v-model="stockPart.averagePurchasePrice"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Stock Quantity</label>
+                      <input
+                        class="form-control"
+                        type="number"
+                        v-model="stockPart.quantity"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              id="dismiss"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button @click="saveStockPart()" class="btn btn-facebook">
+              Save Stock Part
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </MainLayout>
 </template>
 
@@ -182,6 +311,16 @@ export default {
   components: { MainLayout },
   data() {
     return {
+      stockPart: {
+        price: "",
+        partName: "",
+        partOrLabour: "",
+        brand: "",
+        qoH: "",
+        averagePurchasePrice: "",
+        quantity: "",
+      },
+      showModal: false,
       invoice: {},
       orderParts: [],
       payments: [],
@@ -305,9 +444,9 @@ export default {
       let jc = [];
       jc = this.jobCardsList.data;
       let acId = 0;
-      console.log('invoice', this.invoice);
+      console.log("invoice", this.invoice);
       let id = jc.filter((el) => {
-        if((el.invoice.id === this.invoice.id)){
+        if (el.invoice.id === this.invoice.id) {
           acId = el.id;
           return el.id;
         }
@@ -319,6 +458,36 @@ export default {
         .get(`/job-cards/view/pdf/${acId}`, { responseType: "blob" })
         .then((response) => {
           saveAs(response.data, `invoice - ${this.invoice.id}.pdf`);
+        });
+    },
+    saveStockPart() {
+      this.globalLoadingState = true;
+      http
+        .post(`/stock/create`, this.stockPart)
+        .then(() => {
+          this.$root.$emit("stockAdded");
+          this.showSuccessMessage();
+          document.getElementById("exampleModal").style.display = "none";
+          // console.log(funny);
+          let btn = document.getElementById("dismiss");
+          btn.click();
+           this.fetchStockParts();
+        })
+        .catch((err) => {
+          console.log(err);
+          this.showErrorMessage();
+        })
+        .finally(() => {
+          this.globalLoadingState = false;
+          this.stockPart = {
+            price: "",
+            partName: "",
+            partOrLabour: "",
+            brand: "",
+            qoH: "",
+            averagePurchasePrice: "",
+            quantity: "",
+          };
         });
     },
   },
