@@ -49,7 +49,6 @@
                   id="seatCoversCheckbox"
                   name="seatCoversCheckbox"
                   value="seatCovers"
-                  
                 />
               </div>
               <div class="col-4">
@@ -59,7 +58,12 @@
                 <img :src="checkListItem.imgSrc" width="100" height="100" />
                 <label>
                   Take Picture
-                  <input @change="uploadImage($event, checkListItem.value)" type="file" accept="image/*" capture />
+                  <input
+                    @change="uploadImage($event, checkListItem.value)"
+                    type="file"
+                    accept="image/*"
+                    capture
+                  />
                 </label>
               </div>
             </div>
@@ -323,16 +327,40 @@ export default {
     };
   },
   methods: {
-    saveVehicle() {
-      console.log("mota ino");
-      console.log(this.x);
-      // console.log(e.target.value)
-    },
-
     uploadImage(event, data) {
+      // console.log(data);
+      // var myHeaders = new Headers();
+      // myHeaders.append(
+      //   "Authorization",
+      //   `Bearer ${localStorage.getItem('token')}`
+      // );
+      // myHeaders.append("Cookie", "JSESSIONID=571A68EF444895634ECEBC534521C74A");
+
+      // myHeaders.append("Content-Type", "multipart/form-data")
+
+      // var formdata = new FormData();
+      // formdata.append(
+      //   "file",
+      //   event.target.files[0]
+      // );
+
+      // var requestOptions = {
+      //   method: "POST",
+      //   headers: myHeaders,
+      //   body: formdata,
+      //   redirect: "follow",
+      // };
+
+      // fetch("http://localhost:8082/api/checklist/upload", requestOptions)
+      //   .then((response) => response.text())
+      //   .then((result) => console.log(result))
+      //   .catch((error) => console.log("error", error));
+
       console.log(event, data);
       let formData = new FormData();
+
       formData.append("file", event.target.files[0]);
+
       return http
         .post("/checklist/upload", formData, {
           headers: {
@@ -344,7 +372,7 @@ export default {
           this.itemsList.push({
             checkedPart: data,
             conditionGood: true,
-            imgSrc: res
+            imageUrl: res.data
           });
         });
     },
@@ -361,10 +389,13 @@ export default {
         conditionGood: true,
       });
     },
+
+
     saveAll() {
+      console.log(this.itemsList);
+
       http
         .post(`/checklist/item/save/${this.vehicle.id}`, this.itemsList)
-        // this.$router.go()
         .then((res) => {
           console.log(res);
           this.$router.push("viewchecklist");
