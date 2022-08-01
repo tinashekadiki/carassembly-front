@@ -25,6 +25,7 @@ import InvoicesEditPage from "../views/InvoicesEditPage";
 import CheckListPage from "../views/CheckListPage.vue";
 import ViewCheckListPage from "../views/ViewCheckList.vue";
 import DownloadJobCardPage from "../views/DownloadJobCardPage.vue"
+import ViewJobCard from "../views/AddStockParts.vue"
 
 Vue.use(VueRouter)
 
@@ -32,6 +33,11 @@ const routes = [{
     path: '/dashboard',
     name: "JobCardTable",
     component: JobCardsPage
+},
+{
+    path: '/jobcard/:id',
+    name: "ViewJobcard",
+    component: ViewJobCard
 },
 {
     path: '/edit/:id',
