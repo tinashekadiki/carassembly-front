@@ -548,7 +548,7 @@ export default {
           .post("/job-cards/create", this.jobCard)
           .then((res) => {
             let id = res.data.invoice.id;
-            this.$router.push(`/invoices/${id}`);
+            this.$router.push(`/jobcard/${id}`);
           })
           .catch((err) => {
             console.log(err);
