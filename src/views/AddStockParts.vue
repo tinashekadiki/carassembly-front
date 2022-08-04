@@ -76,6 +76,21 @@
             </tr>
           </tbody>
         </table>
+        <div>
+          <!-- <button class="btn btn-primary" :to="`/`">
+            Close JobCard
+          </button> -->
+          
+           <router-link
+            :to="`/`"
+            class="btn btn-primary"
+            >Close Job Card</router-link>
+           <router-link
+            :to="`/invoices/${this.jobCard.invoice.id}`"
+            class="btn btn-facebook"
+            >Generate Invoice</router-link>
+
+        </div>
       </div>
     </div>
   </MainLayout>
@@ -138,6 +153,9 @@ export default {
       console.log(this.newStockPart)
       
       this.addedStockParts.push(this.newStockPart)
+      this.quantity = ""
+      this.service_labour = ""
+      this.partId = ""
     }
   },
   data() {
