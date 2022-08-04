@@ -138,20 +138,7 @@ export default {
 
       
     saveOrderPart(){
-      // this.globalLoadingState = true;
-      // this.newStockPart.quantity = this.quantity
-      // this.newStockPart.service_labour = this.service_labour
-      // console.log(this.partId)
-      // const selectedStock = this.stockParts.find((stock)=> stock.id == this.partId)
-      // this.newStockPart = {...this.newStockPart, ...selectedStock}
-      // console.log(this.newStockPart)
-      
-      // this.addedStockParts.push(this.newStockPart)
-      // this.quantity = ""
-      // this.service_labour = ""
-      // this.partId = ""
-
-      // 
+     
 
       this.globalLoadingState = true;
       this.orderParts.push(this.orderPart);
@@ -173,6 +160,25 @@ export default {
         })
         .finally(() => {
           this.globalLoadingState = false;
+          this.orderPart= {
+        id:56,
+        stockPart: {
+          price: "",
+          partName: "",
+          partOrLabour: "",
+          brand: "",
+          qoH: "",
+          averagePurchasePrice: "",
+          quantity: "",
+        },
+        discount: "",
+        tax: {
+          taxType: "",
+          taxName: "",
+          taxPercentage: "",
+        },
+        orderQuantity: "",
+      }
         });
     }
   },
