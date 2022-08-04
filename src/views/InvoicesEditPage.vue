@@ -2,7 +2,7 @@
   <MainLayout title="Invoices">
     <div class="row">
       <div class="col-md-6">
-        <div class="card row custom">
+        <!-- <div class="card row custom">
           <div class="card-header">Add More Stock Parts</div>
           <div class="card-body">
             <div class="col-md-12">
@@ -64,7 +64,7 @@
               Add Part <i class="fa fa-plus"></i>
             </button>
           </div>
-        </div>
+        </div> -->
         <div class="card row custom">
           <div class="card-header">Record Payment</div>
           <div class="card-body">

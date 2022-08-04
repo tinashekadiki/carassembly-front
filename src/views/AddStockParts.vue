@@ -10,10 +10,15 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>Part Name</label>
-              <select class="form-control" v-model="partId">
-                <option selected disabled>Select part name</option>
-                <option :value="stockPart.id" v-for="stockPart in stockParts" :key="stockPart.id">{{stockPart.partName}} </option>
-              </select>
+                <input class="form-control" type="text" v-model="orderPart.stockPart.partName" placeholder="Part Name" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="search"
+                ><strong>Price</strong> 
+              </label>
+              <input class="form-control" type="number" min="0" v-model="orderPart.stockPart.price" placeholder="Quantity" />
             </div>
           </div>
           <div class="col-md-4">
@@ -21,22 +26,22 @@
               <label for="search"
                 ><strong>Quantity</strong> 
               </label>
-              <input class="form-control" type="text" v-model="quantity" placeholder="Quantity" />
+              <input class="form-control" type="text" v-model="orderPart.stockPart.quantity" placeholder="Quantity" />
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="form-group">
-              <label><strong>Service</strong> / <strong>Labour</strong></label>
-              <select class="form-control" v-model="service_labour">
-                <option selected disabled>Service / labour</option>
-                <option value="service">Service</option>
+              <label><strong>Part</strong> / <strong>Labour</strong></label>
+              <select class="form-control" v-model="orderPart.stockPart.partOrLabour">
+                <option selected disabled>Part / labour</option>
+                <option value="part">Part</option>
                 <option value="labour" >Labour</option>
               </select>
             </div>
           </div>
-          <div class="col-md-1">
+          <div class="col-md-4">
             <div class="form-group mt-4">
-              <button class="btn bg-primary text-white" @click="addStockParts">Add</button>
+              <button class="btn bg-primary text-white" @click="saveOrderPart">Add <i class="fa fa-plus"></i></button>
             </div>
           </div>
         </div>
@@ -58,21 +63,21 @@
               <th>Total $</th>
             </tr>
           </thead>
-          <tbody  v-if="addedStockParts.length > 0">
-            <tr v-for="stock in addedStockParts" :key="stock.id">
-              <td>{{stock.partName}}</td>
-              <td>{{stock.service_labour}}</td>
-              <td>{{stock.quantity}}</td>
-              <td>{{stock.price}}</td>
+          <tbody  v-if="orderParts.length > 0">
+            <tr v-for="orderPart in orderParts" :key="orderPart.id">
+              <td>{{orderPart.stockPart.partName}}</td>
+              <td>{{orderPart.stockPart.partOrLabour}}</td>
+              <td>{{orderPart.stockPart.quantity}}</td>
+              <td>{{orderPart.stockPart.price}}</td>
               <td></td>
               <td></td>
               <td></td>
               <td></td>
               <td></td>
               <td></td>
-              <td>5%</td>
               <td></td>
-              <td>{{(stock.price * stock.quantity) + stock.price * stock.quantity * 0.05}}</td>
+              <td></td>
+              <td>{{(orderPart.stockPart.price * orderPart.stockPart.quantity) + orderPart.stockPart.price * orderPart.stockPart.quantity }}</td>
             </tr>
           </tbody>
         </table>
@@ -105,7 +110,6 @@ export default {
   name: "JobCardTable",
   mounted() {
     this.getJobCard();
-    this.getStockParts()
   },
   methods: {
     getJobCard() {
@@ -117,6 +121,10 @@ export default {
             console.log(resp.data);
             this.jobCard.arrivalDate = resp.data.arrivalDate;
             this.jobCard = resp.data;
+            this.invoice = resp.data.invoice;
+            this.orderParts = this.invoice.orderParts;
+            console.log("parts", this.orderParts)
+            
             console.log("JobCard", this.jobCard);
           })
           .catch((err) => {
@@ -128,44 +136,70 @@ export default {
       }
     },
 
-    getStockParts(){
-       this.globalLoadingState = true;
-        http
-          .get(`/stock/list`)
-          .then((resp) => {
-            console.log(resp.data);
-            this.stockParts = resp.data;
-          })
-          .catch((err) => {
-            console.log(err);
-          })
-          .finally(() => {
-            this.globalLoadingState = false;
-          });
-    },
       
-    addStockParts(){
-      this.newStockPart.quantity = this.quantity
-      this.newStockPart.service_labour = this.service_labour
-      console.log(this.partId)
-      const selectedStock = this.stockParts.find((stock)=> stock.id == this.partId)
-      this.newStockPart = {...this.newStockPart, ...selectedStock}
-      console.log(this.newStockPart)
+    saveOrderPart(){
+      // this.globalLoadingState = true;
+      // this.newStockPart.quantity = this.quantity
+      // this.newStockPart.service_labour = this.service_labour
+      // console.log(this.partId)
+      // const selectedStock = this.stockParts.find((stock)=> stock.id == this.partId)
+      // this.newStockPart = {...this.newStockPart, ...selectedStock}
+      // console.log(this.newStockPart)
       
-      this.addedStockParts.push(this.newStockPart)
-      this.quantity = ""
-      this.service_labour = ""
-      this.partId = ""
+      // this.addedStockParts.push(this.newStockPart)
+      // this.quantity = ""
+      // this.service_labour = ""
+      // this.partId = ""
+
+      // 
+
+      this.globalLoadingState = true;
+      this.orderParts.push(this.orderPart);
+      this.invoice.orderParts = this.orderParts;
+
+      http
+        .post("/order-part/create", {
+          invoice: this.invoice,
+          ...this.orderPart,
+        })
+        .then((res) => {
+          console.log(res);
+          this.getInvoice();
+          this.showSuccessMessage();
+        })
+        .catch((err) => {
+          this.showErrorMessage();
+          console.log(err);
+        })
+        .finally(() => {
+          this.globalLoadingState = false;
+        });
     }
   },
   data() {
     return {
-      
+      orderParts: [],
+      invoice: {},
+      orderPart: {
+        id:56,
+        stockPart: {
+          price: "",
+          partName: "",
+          partOrLabour: "",
+          brand: "",
+          qoH: "",
+          averagePurchasePrice: "",
+          quantity: "",
+        },
+        discount: "",
+        tax: {
+          taxType: "",
+          taxName: "",
+          taxPercentage: "",
+        },
+        orderQuantity: "",
+      },
       newStockPart: {},
-      partName: '',
-      partId: '',
-      quantity: '',
-      service_labour: '',
       addedStockParts:[],
       stockParts: [],
       jobCard: {
@@ -219,6 +253,7 @@ export default {
           mobileNumber: "",
           alternativeMobileNumber: "",
         },
+      
       },
     };
   },
